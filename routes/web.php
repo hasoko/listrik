@@ -7,7 +7,11 @@ use App\Http\Controllers\HalamanAdmin;
 use App\Http\Controllers\Informasi;
 use App\Http\Controllers\KwhMeter;
 use App\Http\Controllers\Laporan;
+use App\Http\Controllers\Profil;
+use App\Http\Controllers\Tagihan;
 use App\Http\Controllers\TransaksiPembayaran;
+
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +49,10 @@ Route::get('/admin/informasi/input', [Informasi::class, 'inputinformasi']);
 Route::get('/admin/transaksipembayaran', [TransaksiPembayaran::class, 'index']);
 
 Route::get('/admin/laporan', [Laporan::class, 'index']);
+
+Route::get('/pengguna/profil', [Profil::class, 'index']);
+
+Route::get('/pengguna/tagihan', [Tagihan::class, 'index']);
+
 
 //end route halaman admin
