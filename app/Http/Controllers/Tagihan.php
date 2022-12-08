@@ -12,8 +12,7 @@ class Tagihan extends Controller
         [
             'halaman' => 
             [
-                'title' => 'head Tagihan',
-                'isi' => 'ini isi'
+                'title' => 'Tagihan'
             ]
         ];
         return view('pengguna.tagihan.index', $data);

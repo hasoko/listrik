@@ -102,7 +102,7 @@
 
                         <li class="nav-header">Pengguna</li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/tagihan" class="nav-link">
+                            <a href="{{ asset('/pengguna') }}/tagihan" class="nav-link">
                                 <i class="nav-icon fas fa-file-invoice"></i>
                                 <p>
                                     Tagihan
@@ -110,7 +110,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/profil" class="nav-link">
+                            <a href="{{ asset('/pengguna') }}/profil" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Profil
@@ -119,7 +119,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/keluar" class="nav-link">
+                            <a href="{{ asset('/keluar') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>
                                     Keluar

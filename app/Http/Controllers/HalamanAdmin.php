@@ -15,6 +15,7 @@ class HalamanAdmin extends Controller
             'halaman' => [
                 'title' => 'Dashboard'
             ]
+            
         ];
         return view('admin.index', $data);
     }

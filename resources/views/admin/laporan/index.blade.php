@@ -8,9 +8,9 @@
             <div class="col-md-12">
                 <div class="card card-header">
                     <div class="card">
-                        <div class="card-header">
+                        <!-- <div class="card-header">
                         <h3 class="card-title">{{ $halaman['title'] }}</h3>
-                        </div>
+                        </div> -->
                         <!-- /.card-header -->
                         <!-- form start -->
 
