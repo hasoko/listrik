@@ -8,6 +8,11 @@ class Laporan extends Controller
 {
     public function index()
     {
-        return view('admin.laporan.index');
+        $data = [
+            'halaman' => [
+                'title' => 'Laporan'
+            ]
+        ];
+        return view('admin.laporan.index', $data);
     }
 }

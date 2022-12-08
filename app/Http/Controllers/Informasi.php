@@ -8,11 +8,21 @@ class Informasi extends Controller
 {
     public function index()
     {
-        return view('admin.informasi.index');
+        $data = [
+            'halaman' => [
+                'title' => 'Informasi'
+            ]
+        ];
+        return view('admin.informasi.index', $data);
     }
 
     public function inputinformasi()
     {
-        return view('admin.informasi.input');
+        $data = [
+            'halaman' => [
+                'title' => 'Input Informasi'
+            ]
+        ];
+        return view('admin.informasi.input', $data);
     }
 }

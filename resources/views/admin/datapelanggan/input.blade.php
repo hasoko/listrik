@@ -6,9 +6,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-primary">
+                <div class="card card-secondary">
                     <div class="card-header">
-                        <h3 class="card-title">Input Data Pelanggan</h3>
+                    <h3 class="card-title">{{ $halaman['title'] }}</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->

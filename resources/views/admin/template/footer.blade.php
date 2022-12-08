@@ -79,15 +79,46 @@
             "autoWidth": false,
             "buttons": [  {
                 text: 'Input KWH Meter',
-                className: 'btn btn-primary',
+                className: 'btn btn-success',
                 action: function ( e, dt, node, config ) {
                     location.href = "kwhmeter/input";
                 }
             }
         ]
-
-            
         }).buttons().container().appendTo('#kwhmeter_wrapper .col-md-6:eq(0)');
+
+        $("#datapelanggan").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "ordering": false,
+            "autoWidth": false,
+            "buttons": [  {
+                text: 'Tambah Pelanggan',
+                className: 'btn btn-success',
+                action: function ( e, dt, node, config ) {
+                    location.href = "datapelanggan/input";
+                }
+            }
+        ]
+        }).buttons().container().appendTo('#datapelanggan_wrapper .col-md-6:eq(0)');
+
+
+        $("#datadaya").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "ordering": false,
+            "autoWidth": false,
+            "buttons": [  {
+                text: 'Tambah Data Daya',
+                className: 'btn btn-success',
+                action: function ( e, dt, node, config ) {
+                    location.href = "datadaya/input";
+                }
+            }
+        ]
+        }).buttons().container().appendTo('#datadaya_wrapper .col-md-6:eq(0)');
+
+
         $("#example1").DataTable({
             "responsive": true,
             "lengthChange": false,
@@ -125,42 +156,23 @@
             ]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
+
+        
         $("#informasi").DataTable({
             "responsive": true,
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
-            "buttons": [
-
-                {
-                    extend: "collection",
-                    className: 'btn btn-primary',
-                    text: "Export",
-                    autoClose: true,
-                    buttons: [
-                        
-                        {
-                            extend: "excel",
-                            text: "Simpan Excel <i class='\"nav-icon fas fa-file-excel'\"></i>"
-                        },
-                        {
-                            extend: "pdf",
-                            text: "Simpan PDF <i class='\"nav-icon fas fa-file-pdf'\">"
-                        }
-
-                    ]
-                },
-                {
-                    extend: 'spacer',
-                    style: 'bar'
-                },
-                {
-                    extend: "print",
-                    className: 'btn btn-success',
-                    text: "Cetak"
+            "buttons": [  {
+                text: 'Tambah Informasi',
+                className: 'btn btn-success',
+                action: function ( e, dt, node, config ) {
+                    location.href = "informasi/input";
                 }
-            ]
+            }
+        ]
         }).buttons().container().appendTo('#informasi_wrapper .col-md-6:eq(0)');
+
 });
 </script>
 </body>

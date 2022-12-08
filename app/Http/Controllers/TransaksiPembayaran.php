@@ -8,11 +8,21 @@ class TransaksiPembayaran extends Controller
 {
     public function index()
     {
-        return view('admin.transaksipembayaran.index');
+        $data = [
+            'halaman' => [
+                'title' => 'Transaksi'
+            ]
+        ];
+        return view('admin.transaksipembayaran.index', $data);
     }
 
     public function invoice()
     {
-        return view('admin.transaksipembayaran.invoice');
+        $data = [
+            'halaman' => [
+                'title' => 'Invoice'
+            ]
+        ];
+        return view('admin.transaksipembayaran.invoice', $data);
     }
 }

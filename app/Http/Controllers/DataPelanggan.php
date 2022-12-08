@@ -8,11 +8,21 @@ class DataPelanggan extends Controller
 {
     public function index()
     {
-        return view('admin.datapelanggan.index');
+        $data = [
+            'halaman' => [
+                'title' => 'Data Pelanggan'
+            ]
+        ];
+        return view('admin.datapelanggan.index', $data);
     }
 
     public function inputdatapelanggan()
     {
-        return view('admin.datapelanggan.input');
+        $data = [
+            'halaman' => [
+                'title' => 'Input Data Pelanggan'
+            ]
+        ];
+        return view('admin.datapelanggan.input', $data);
     }
 }

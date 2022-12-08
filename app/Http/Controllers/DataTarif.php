@@ -8,11 +8,21 @@ class DataTarif extends Controller
 {
     public function index()
     {
-        return view('admin.datatarif.index');
+        $data = [
+            'halaman' => [
+                'title' => 'Data Tarif'
+            ]
+        ];
+        return view('admin.datatarif.index', $data);
     }
 
     public function inputdatatarif()
     {
-        return view('admin.datatarif.input');
+        $data = [
+            'halaman' => [
+                'title' => 'Input Tarif'
+            ]
+        ];
+        return view('admin.datatarif.input', $data);
     }
 }

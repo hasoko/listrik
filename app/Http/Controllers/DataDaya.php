@@ -8,11 +8,21 @@ class DataDaya extends Controller
 {
     public function index()
     {
-        return view('admin.datadaya.index');
+        $data = [
+            'halaman' => [
+                'title' => 'Data Daya'
+            ]
+        ];
+        return view('admin.datadaya.index', $data);
     }
 
     public function inputdatadaya()
     {
-        return view('admin.datadaya.input');
+        $data = [
+            'halaman' => [
+                'title' => 'Input Daya'
+            ]
+        ];
+        return view('admin.datadaya.input', $data);
     }
 }

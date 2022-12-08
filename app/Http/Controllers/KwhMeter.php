@@ -18,6 +18,11 @@ class KwhMeter extends Controller
 
     public function inputkwh()
     {
-        return view('admin.kwhmeter.input');
+        $data = [
+            'halaman' => [
+                'title' => 'Input KWH'
+            ]
+        ];
+        return view('admin.kwhmeter.input', $data);
     }
 }
