@@ -17,8 +17,8 @@ class CreateTagihanTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedbigInteger('id_tagihan');
             $table->primary('id_tagihan');
-            $table->char('bulan',2);
-            $table->char('tahun',4);
+            $table->char('bulan', 2);
+            $table->char('tahun', 4);
             $table->double('jumlah_meter');
             $table->double('lwbp');
             $table->double('wbp');
@@ -28,8 +28,8 @@ class CreateTagihanTable extends Migration
 
             $table->foreignId('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
             $table->foreignId('id_kwhmeter')->references('id_kwhmeter')->on('kwhmeter')->onDelete('cascade');
-            $table->foreignId('id_tarif')->references('id_tarif')->on('tarif')->onDelete('cascade');
- 
+            //$table->foreignId('id_tarif')->references('id_tarif')->on('tarif')->onDelete('cascade');
+
         });
     }
 

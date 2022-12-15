@@ -17,8 +17,7 @@ class CreateUnitTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedbigInteger('id_unit');
             $table->primary('id_unit');
-            $table->string('nama_unit',50);
-
+            $table->string('nama_unit', 50);
         });
     }
 

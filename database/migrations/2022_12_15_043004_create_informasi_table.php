@@ -17,7 +17,7 @@ class CreateInformasiTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedbigInteger('id_informasi');
             $table->primary('id_informasi');
-            $table->string('judul',100);
+            $table->string('judul', 100);
             $table->longText('isi');
             $table->date('tanggal');
 

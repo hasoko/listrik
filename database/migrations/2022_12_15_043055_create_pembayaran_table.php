@@ -24,7 +24,7 @@ class CreatePembayaranTable extends Migration
             $table->foreignId('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
             $table->foreignId('id_kwhmeter')->references('id_kwhmeter')->on('kwhmeter')->onDelete('cascade');
             $table->foreignId('id_user')->references('id_user')->on('user')->onDelete('cascade');
-         });
+        });
     }
 
     /**

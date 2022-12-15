@@ -17,9 +17,9 @@ class CreateUserTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedbigInteger('id_user');
             $table->primary('id_user');
-            $table->string('username',20)->unique();
+            $table->string('username', 20)->unique();
             $table->string('password');
-            $table->string('status',10);
+            $table->string('status', 10);
 
             $table->foreignId('id_pelanggan')->nullable()->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
         });
