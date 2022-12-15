@@ -18,9 +18,11 @@ class CreatePelangganTable extends Migration
             $table->unsignedbigInteger('id_pelanggan');
             $table->primary('id_pelanggan');
             $table->string('nama',50);
-            $table->string('lokasi',100);
-            $table->string('foto',20);
             $table->string('npwp',15);
+            $table->string('telepon',15);
+
+            $table->foreignId('id_unit')->nullable()->references('id_unit')->on('unit')->onDelete('cascade');
+
 
         });
     }
