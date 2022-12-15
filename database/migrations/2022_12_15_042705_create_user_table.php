@@ -17,11 +17,11 @@ class CreateUserTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedbigInteger('id_user');
             $table->primary('id_user');
-            $table->char('username',20);
-            $table->char('password',20);
-            $table->char('status',10);
+            $table->string('username',20)->unique();
+            $table->string('password');
+            $table->string('status',10);
 
-            $table->foreignId('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
+            $table->foreignId('id_pelanggan')->nullable()->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
         });
     }
 
