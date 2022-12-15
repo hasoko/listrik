@@ -14,7 +14,9 @@ class CreatePelangganTable extends Migration
     public function up()
     {
         Schema::create('pelanggan', function (Blueprint $table) {
-            $table->bigInteger('id_pelanggan');
+            $table->engine = 'InnoDB';
+            $table->unsignedbigInteger('id_pelanggan');
+            $table->primary('id_pelanggan');
             $table->string('nama',50);
             $table->string('lokasi',100);
             $table->string('foto',20);

@@ -14,12 +14,14 @@ class CreateInformasiTable extends Migration
     public function up()
     {
         Schema::create('informasi', function (Blueprint $table) {
-            $table->increments('id_informasi');
+            $table->engine = 'InnoDB';
+            $table->unsignedbigInteger('id_informasi');
+            $table->primary('id_informasi');
             $table->string('judul',100);
-            $table->logText('isi');
+            $table->longText('isi');
             $table->date('tanggal');
 
-            $table->foreign('id_user')->references('id_user')->on('user');
+            $table->foreignId('id_user')->references('id_user')->on('user')->onDelete('cascade');
         });
     }
 

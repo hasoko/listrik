@@ -14,7 +14,9 @@ class CreateTarifTable extends Migration
     public function up()
     {
         Schema::create('tarif', function (Blueprint $table) {
-            $table->increments('id_tarif');
+            $table->engine = 'InnoDB';
+            $table->unsignedbigInteger('id_tarif');
+            $table->primary('id_tarif');
             $table->double('tarifperkwh');
 
 

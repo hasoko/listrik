@@ -14,12 +14,14 @@ class CreateUserTable extends Migration
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->increments('id_user');
+            $table->engine = 'InnoDB';
+            $table->unsignedbigInteger('id_user');
+            $table->primary('id_user');
             $table->char('username',20);
             $table->char('password',20);
             $table->char('status',10);
 
-            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan');
+            $table->foreignId('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
         });
     }
 
