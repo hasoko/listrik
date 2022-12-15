@@ -17,8 +17,8 @@ class CreateKwhmeterTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedbigInteger('id_kwhmeter');
             $table->primary('id_kwhmeter');
-            $table->char('bulan',2);
-            $table->char('tahun',4);
+            $table->char('bulan', 2);
+            $table->char('tahun', 4);
             $table->double('meter_awal');
             $table->double('meter_akhir');
             $table->date('tanggal_catat');
