@@ -21,6 +21,7 @@ class User extends Authenticatable
         'id_user', 'username', 'password', 'status', 'id_pelanggan'
     ];
 
+    public $timestamps = false;
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class);

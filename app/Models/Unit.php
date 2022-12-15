@@ -13,9 +13,10 @@ class Unit extends Model
     protected $table = "unit";
     protected $fillable = [
 
-        'id_unit', 'nama_unit',
+        'id_unit', 'nama_unit', 'prefix'
     ];
 
+    public $timestamps = false;
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class);

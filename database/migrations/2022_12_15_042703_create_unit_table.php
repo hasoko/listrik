@@ -15,9 +15,10 @@ class CreateUnitTable extends Migration
     {
         Schema::create('unit', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedbigInteger('id_unit');
-            $table->primary('id_unit');
+            $table->tinyIncrements('id_unit');
+            // $table->primary('id_unit');
             $table->string('nama_unit', 50);
+            $table->string('prefix', 2);
         });
     }
 

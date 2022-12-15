@@ -16,30 +16,29 @@ class DatabaseSeeder extends Seeder
     {
         $user = [
             [
-                'id_user' => '1',
+                'id_user' => 1,
                 'username' => 'admin',
                 'password' => bcrypt('123456'),
                 'status' => 'Admin',
-                
+
             ],
             [
-                'id_user' => '2',
+                'id_user' => 2,
                 'username' => 'kasir',
                 'password' => bcrypt('123456'),
                 'status' => 'Kasir',
-                
+
             ],
             [
-                'id_user' => '3',
+                'id_user' => 3,
                 'username' => 'petugas',
                 'password' => bcrypt('123456'),
                 'status' => 'Petugas',
-                
+
             ],
 
         ];
 
         DB::table('user')->insert($user);
-
     }
 }

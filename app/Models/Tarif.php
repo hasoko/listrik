@@ -14,4 +14,5 @@ class Tarif extends Model
 
         'id_tarif', 'tarifperkwh',
     ];
+    public $timestamps = false;
 }

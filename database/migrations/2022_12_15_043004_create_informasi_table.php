@@ -15,13 +15,14 @@ class CreateInformasiTable extends Migration
     {
         Schema::create('informasi', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedbigInteger('id_informasi');
-            $table->primary('id_informasi');
+            $table->smallIncrements('id_informasi');
+            // $table->primary('id_informasi');
             $table->string('judul', 100);
             $table->longText('isi');
             $table->date('tanggal');
 
-            $table->foreignId('id_user')->references('id_user')->on('user')->onDelete('cascade');
+            $table->SmallInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id_user')->on('user')->onDelete('cascade');
         });
     }
 

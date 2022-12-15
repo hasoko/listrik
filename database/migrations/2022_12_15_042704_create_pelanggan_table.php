@@ -15,13 +15,15 @@ class CreatePelangganTable extends Migration
     {
         Schema::create('pelanggan', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedbigInteger('id_pelanggan');
+            $table->unsignedInteger('id_pelanggan');
             $table->primary('id_pelanggan');
+            $table->integer('faktor_meter');
             $table->string('nama', 50);
-            $table->string('npwp', 15);
-            $table->string('telepon', 15);
+            $table->string('npwp', 15)->nullable();
+            $table->string('telepon', 15)->nullable();
 
-            $table->foreignId('id_unit')->nullable()->references('id_unit')->on('unit')->onDelete('cascade');
+            $table->tinyinteger('id_unit')->unsigned();
+            $table->foreign('id_unit')->nullable()->references('id_unit')->on('unit')->onDelete('cascade');
         });
     }
 

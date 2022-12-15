@@ -15,15 +15,22 @@ class CreatePembayaranTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedbigInteger('id_pembayaran');
+            $table->unsignedInteger('id_pembayaran');
             $table->primary('id_pembayaran');
             $table->date('tanggal_bayar');
             $table->double('total_bayar');
 
-            $table->foreignId('id_tagihan')->references('id_tagihan')->on('tagihan')->onDelete('cascade');
-            $table->foreignId('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
-            $table->foreignId('id_kwhmeter')->references('id_kwhmeter')->on('kwhmeter')->onDelete('cascade');
-            $table->foreignId('id_user')->references('id_user')->on('user')->onDelete('cascade');
+            $table->integer('id_tagihan')->unsigned();
+            $table->foreign('id_tagihan')->references('id_tagihan')->on('tagihan')->onDelete('cascade');
+
+            $table->integer('id_pelanggan')->unsigned();
+            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
+
+            $table->integer('id_kwhmeter')->unsigned();
+            $table->foreign('id_kwhmeter')->references('id_kwhmeter')->on('kwhmeter')->onDelete('cascade');
+
+            $table->SmallInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id_user')->on('user')->onDelete('cascade');
         });
     }
 

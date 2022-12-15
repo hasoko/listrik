@@ -18,6 +18,7 @@ class Tagihan extends Model
         'id_tagihan', 'bulan', 'tahun', 'jumlah_meter', 'lwbp', 'wbp', 'pjudki', 'pemeliharaan', 'materai', 'id_pelanggan', 'id_kwhmeter'
     ];
 
+    public $timestamps = false;
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class);

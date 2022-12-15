@@ -19,6 +19,7 @@ class Pembayaran extends Model
         'id_pembayaran', 'tanggal_bayar', 'total_bayar', 'id_tagihan', 'id_pelanggan', 'id_kwhmeter', 'id_user'
     ];
 
+    public $timestamps = false;
     public function tagihan()
     {
         return $this->belongsTo(Tagihan::class);

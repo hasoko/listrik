@@ -17,6 +17,7 @@ class Kwhmeter extends Model
         'id_kwhmeter', 'bulan', 'tahun', 'meter_awal', 'meter_akhir', 'tanggal_catat', 'id_pelanggan'
     ];
 
+    public $timestamps = false;
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class);

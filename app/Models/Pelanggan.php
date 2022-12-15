@@ -14,9 +14,10 @@ class Pelanggan extends Model
     protected $table = "pelanggan";
     protected $fillable = [
 
-        'id_pelanggan', 'nama', 'npwp', 'telepon', 'id_unit'
+        'id_pelanggan', 'faktor_meter', 'nama', 'npwp', 'telepon', 'id_unit'
     ];
 
+    public $timestamps = false;
     public function unit()
     {
         return $this->belongsTo(Unit::class);

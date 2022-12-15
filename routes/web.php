@@ -36,6 +36,8 @@ Route::get('/admin/kwhmeter/input', [KwhMeter::class, 'inputkwh']);
 
 Route::get('/admin/datapelanggan', [DataPelanggan::class, 'index']);
 Route::get('/admin/datapelanggan/input', [DataPelanggan::class, 'inputdatapelanggan']);
+Route::post('/admin/datapelanggan/simpan', [DataPelanggan::class, 'simpan']);
+Route::delete('/admin/datapelanggan/{id}', [DataPelanggan::class, 'hapus']);
 
 Route::get('/admin/datadaya', [DataDaya::class, 'index']);
 Route::get('/admin/datadaya/input', [DataDaya::class, 'inputdatadaya']);

@@ -20,24 +20,30 @@
                                 <thead>
                                     <tr>
                                         <th>ID Pelanggan</th>
-                                        <th>Nama Pelanggan</th>
-                                        <th>Unit</th>
+                                        <th>Faktor Meter</th>
+                                        <th>Nama</th>
+                                        <th>NPWP</th>
                                         <th>No Telepon</th>
-                                        <th>Email</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($pelanggan as $value)
                                     <tr>
-                                        <td>780000</td>
-                                        <td>Anjungan Jawa Barat</td>
-                                        <td>Anjungan</td>
-                                        <td>08123456798</td>
-                                        <td>fulan@gmail.com</td>
-                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-danger btn-sm">Hapus</button></td>
-
+                                        <td>{{ $value->id_pelanggan }}</td>
+                                        <td>{{ $value->faktor_meter }}</td>
+                                        <td>{{ $value->nama }}</td>
+                                        <td>{{ $value->npwp }}</td>
+                                        <td>{{ $value->telepon }}</td>
+                                        <td><button type="button" class="d-flex flex-row btn btn-primary btn-sm">Edit</button>
+                                            <form action="{{url('/admin/datapelanggan/'.$value->id_pelanggan)}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button onclick="return confirm('Yakin Data {{ $value->nama }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
+                                            </form>
+                                        </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
 
                             </table>
