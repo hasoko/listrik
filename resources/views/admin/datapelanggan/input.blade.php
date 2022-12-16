@@ -41,6 +41,10 @@
                                 <label>No Telepon</label>
                                 <input type="text" class="form-control" name="telepon" placeholder="No Telepon">
                             </div>
+                            <div class="form-group col-md-6">
+                                <label>Jumlah KWH Pertama Pasang</label>
+                                <input type="text" class="form-control" name="meter_dipasang" placeholder="Jumlah KWH" value="0">
+                            </div>
 
                         </div>
                         <!-- /.card-body -->

@@ -2,6 +2,10 @@
 @include('admin.template.sidebar')
 
 <!-- Main content -->
+<!-- <a href="/admin/datadaya/input">input</a> -->
+<!-- /.content -->
+
+<!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -15,41 +19,33 @@
                         <!-- form start -->
 
                         <div class="card-body">
-                            <table id="kwhmeter" class="table table-bordered table-striped">
+                            <table id="dataunit" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID Pelanggan</th>
-                                        <th>Nama Pelanggan</th>
-                                        <th>Unit</th>
-                                        <th>Status</th>
-                                    </tr>
+                                        <th>ID Unit</th>
+                                        <th>Nama Unit</th>
+                                        <th>Kode Prefix</th>
+                                        <th>Aksi</th>
+
+                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($pelanggans as $value)
+                                    @foreach ($unit as $value)
                                     <tr>
-                                        <td>{{ $value->id_pelanggan }}</td>
-                                        <td>{{ $value->nama }}</td>
-                                        <td>{{ $value->unit->nama_unit }}</td>
+                                        <td>{{ $value->id_unit }}</td>
+                                        <td>{{ $value->nama_unit }}</td>
+                                        <td>{{ $value->prefix }}</td>
                                         <td><button type="button" class="d-flex flex-row btn btn-primary btn-sm">Edit</button>
                                             <form action="{{url('/admin/dataunit/'.$value->id_pelanggan)}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button onclick="return confirm('Yakin Data {{ $value->id_unit }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
+                                                <button onclick="return confirm('Yakin Data {{ $value->nama_unit }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
-                                <!-- <tfoot>
-                                    <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                    
-                                    </tr>
-                                </tfoot> -->
+
                             </table>
 
                         </div>

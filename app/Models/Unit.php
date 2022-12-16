@@ -11,6 +11,7 @@ class Unit extends Model
     use HasFactory;
 
     protected $table = "unit";
+    protected $primaryKey = 'id_unit';
     protected $fillable = [
 
         'id_unit', 'nama_unit', 'prefix'
@@ -19,6 +20,6 @@ class Unit extends Model
     public $timestamps = false;
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class);
+        return $this->hasMany(Pelanggan::class);
     }
 }

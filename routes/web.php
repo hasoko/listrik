@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\DataDaya;
+use App\Http\Controllers\DataUnit;
 use App\Http\Controllers\DataPelanggan;
 use App\Http\Controllers\DataTarif;
 use App\Http\Controllers\HalamanAdmin;
 use App\Http\Controllers\Informasi;
-use App\Http\Controllers\KwhMeter;
+use App\Http\Controllers\DataKwhMeter;
 use App\Http\Controllers\Laporan;
 use App\Http\Controllers\Profil;
 use App\Http\Controllers\Tagihan;
@@ -31,16 +31,17 @@ Route::get('/', function () {
 // route halaman admin
 Route::get('/admin', [HalamanAdmin::class, 'index']);
 
-Route::get('/admin/kwhmeter', [KwhMeter::class, 'index']);
-Route::get('/admin/kwhmeter/input', [KwhMeter::class, 'inputkwh']);
+Route::get('/admin/kwhmeter', [DataKwhMeter::class, 'index']);
+Route::get('/admin/kwhmeter/input', [DataKwhMeter::class, 'inputkwh']);
 
 Route::get('/admin/datapelanggan', [DataPelanggan::class, 'index']);
 Route::get('/admin/datapelanggan/input', [DataPelanggan::class, 'inputdatapelanggan']);
 Route::post('/admin/datapelanggan/simpan', [DataPelanggan::class, 'simpan']);
 Route::delete('/admin/datapelanggan/{id}', [DataPelanggan::class, 'hapus']);
 
-Route::get('/admin/datadaya', [DataDaya::class, 'index']);
-Route::get('/admin/datadaya/input', [DataDaya::class, 'inputdatadaya']);
+Route::get('/admin/dataunit', [DataUnit::class, 'index']);
+Route::get('/admin/dataunit/input', [DataUnit::class, 'inputdataunit']);
+Route::post('/admin/dataunit/simpan', [DataUnit::class, 'simpan']);
 
 Route::get('/admin/datatarif', [DataTarif::class, 'index']);
 Route::get('/admin/datatarif/input', [DataTarif::class, 'inputdatatarif']);

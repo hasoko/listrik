@@ -103,20 +103,20 @@
         }).buttons().container().appendTo('#datapelanggan_wrapper .col-md-6:eq(0)');
 
 
-        $("#datadaya").DataTable({
+        $("#dataunit").DataTable({
             "responsive": true,
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
             "buttons": [  {
-                text: 'Tambah Data Daya',
+                text: 'Tambah Data Unit',
                 className: 'btn btn-success',
                 action: function ( e, dt, node, config ) {
-                    location.href = "datadaya/input";
+                    location.href = "dataunit/input";
                 }
             }
         ]
-        }).buttons().container().appendTo('#datadaya_wrapper .col-md-6:eq(0)');
+        }).buttons().container().appendTo('#dataunit_wrapper .col-md-6:eq(0)');
 
 
         $("#example1").DataTable({

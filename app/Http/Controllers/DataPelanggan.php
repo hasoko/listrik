@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
 use App\Models\Unit;
+use App\Models\Kwhmeter;
 use Illuminate\Http\Request;
+
+use Carbon\Carbon;
 
 class DataPelanggan extends Controller
 {
@@ -33,6 +36,7 @@ class DataPelanggan extends Controller
     public function simpan(Request $request)
     {
 
+
         // membuat ID Pelanggan
         if (Pelanggan::where('id_unit', $request->id_unit)->count() > 0) {
             $prefixid = Pelanggan::where('id_unit', $request->id_unit)->orderBy('id_pelanggan', 'desc')->take(1)->get();
@@ -44,6 +48,9 @@ class DataPelanggan extends Controller
             $idbaru = $unit->prefix . '' . '0001';
         }
         // echo $prefixid;
+        // echo Carbon::now()->month;
+        // echo Carbon::now()->year;
+        // echo Carbon::now()->toDateString();
 
         $tabelPelanggan = new Pelanggan;
         $tabelPelanggan->id_pelanggan = $idbaru;
@@ -53,6 +60,19 @@ class DataPelanggan extends Controller
         $tabelPelanggan->telepon = $request->telepon;
         $tabelPelanggan->id_unit = $request->id_unit;
         $tabelPelanggan->save();
+
+        $bulanini = Carbon::now()->month;
+        $tahunini = Carbon::now()->year;
+        $tanggalskrg = Carbon::now()->toDateString(); 
+
+        $tabelKwhmeter = new Kwhmeter;
+        $tabelKwhmeter->bulan = $bulanini;
+        $tabelKwhmeter->tahun = $tahunini;
+        $tabelKwhmeter->meter_awal = 0;
+        $tabelKwhmeter->meter_akhir = $request->meter_dipasang;
+        $tabelKwhmeter->tanggal_catat = $tanggalskrg;
+        $tabelKwhmeter->id_pelanggan = $idbaru;
+        $tabelKwhmeter->save();
 
         return redirect('/admin/datapelanggan');
     }

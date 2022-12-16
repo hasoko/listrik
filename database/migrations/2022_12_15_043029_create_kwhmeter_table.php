@@ -15,13 +15,13 @@ class CreateKwhmeterTable extends Migration
     {
         Schema::create('kwhmeter', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('id_kwhmeter');
-            $table->primary('id_kwhmeter');
+            $table->Increments('id_kwhmeter');
+            // $table->primary('id_kwhmeter');
             $table->char('bulan', 2);
             $table->char('tahun', 4);
             $table->double('meter_awal');
             $table->double('meter_akhir');
-            $table->date('tanggal_catat');
+            $table->date('tanggal_catat')->nullable();
 
             $table->integer('id_pelanggan')->unsigned();
             $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');

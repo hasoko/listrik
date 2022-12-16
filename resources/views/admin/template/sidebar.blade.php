@@ -67,9 +67,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/datadaya" class="nav-link">
+                            <a href="{{ asset('/admin') }}/dataunit" class="nav-link">
                                 <i class="nav-icon fas fa-bolt"></i>
-                                <p>Data Daya</p>
+                                <p>Data Unit</p>
                             </a>
                         </li>
                         <li class="nav-item">

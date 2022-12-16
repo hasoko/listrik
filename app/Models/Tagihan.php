@@ -13,6 +13,7 @@ class Tagihan extends Model
     use HasFactory;
 
     protected $table = "tagihan";
+    protected $primaryKey = 'id_tagihan';
     protected $fillable = [
 
         'id_tagihan', 'bulan', 'tahun', 'jumlah_meter', 'lwbp', 'wbp', 'pjudki', 'pemeliharaan', 'materai', 'id_pelanggan', 'id_kwhmeter'

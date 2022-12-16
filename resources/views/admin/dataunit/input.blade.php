@@ -12,18 +12,18 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form action="{{url('/admin/dataunit/simpan')}}" method="POST">
+                        @csrf
                         <div class="card-body">
-                            <div class="form-group col-md-6">
-                                <label>ID Daya</label>
-                                <input type="text" class="form-control" name="iddaya" placeholder="1" disabled>
-                            </div>
 
                             <div class="form-group col-md-6">
-                                <label>Daya</label>
-                                <input type="text" class="form-control" name="daya" placeholder="Daya" autofocus="autofocus">
+                                <label>Nama Unit</label>
+                                <input type="text" class="form-control" name="nama_unit" placeholder="Nama Unit" autofocus="autofocus">
                             </div>
-
+                            <div class="form-group col-md-6">
+                                <label>Kode Prefix</label>
+                                <input type="text" class="form-control" name="prefix" placeholder="Prefix">
+                            </div>
 
                         </div>
                         <!-- /.card-body -->
