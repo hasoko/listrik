@@ -63,7 +63,7 @@ class DataPelanggan extends Controller
 
         $bulanini = Carbon::now()->month;
         $tahunini = Carbon::now()->year;
-        $tanggalskrg = Carbon::now()->toDateString(); 
+        $tanggalskrg = Carbon::now()->toDateString();
 
         $tabelKwhmeter = new Kwhmeter;
         $tabelKwhmeter->bulan = $bulanini;

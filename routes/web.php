@@ -32,7 +32,7 @@ Route::get('/', function () {
 Route::get('/admin', [HalamanAdmin::class, 'index']);
 
 Route::get('/admin/kwhmeter', [DataKwhMeter::class, 'index']);
-Route::get('/admin/kwhmeter/input', [DataKwhMeter::class, 'inputkwh']);
+Route::get('/admin/kwhmeter/input/{id}', [DataKwhMeter::class, 'inputkwh']);
 
 Route::get('/admin/datapelanggan', [DataPelanggan::class, 'index']);
 Route::get('/admin/datapelanggan/input', [DataPelanggan::class, 'inputdatapelanggan']);

@@ -26,30 +26,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($kwhmeter as $value)
+                                    @foreach ($kwhmeter as $value)
                                     <tr>
                                         <td>{{ $value->id_pelanggan }}</td>
                                         <td>{{ $value->pelanggan->nama }}</td>
                                         <td>{{ $value->pelanggan->unit->nama_unit }}</td>
+                                        <!-- <td>
+                                            @if($value->tanggal_catat == "12" and $carbon::now()->month == "01")
+                                            <span class="badge badge-danger">belum di catat</span>
+                                            @elseif($value->bulan < $carbon::now()->month)
+                                                <span class="badge badge-danger">belum di catat</span>
+                                                @else
+                                                <span class="badge badge-success">sudah di catat</span>
+                                                @endif
+                                        </td> -->
+                                        <!-- <td>
+                                            @if($value->tanggal_catat == null)
+                                            <span class="badge badge-danger">baru</span>
+                                            @elseif($value->bulan < $carbon::now()->month)
+                                                <span class="badge badge-danger">belum di catat</span>
+                                                @else
+                                                <span class="badge badge-success">sudah di catat</span>
+                                                @endif
+                                        </td> -->
+                                        <td>{{ $value->short_id_kwhmeter }}</td>
                                         <td>
-                                        @if($value->bulan == "12" and $carbon::now()->month == "01")
-                                        <span class="badge badge-danger">belum di catat</span>
-                                        @elseif($value->bulan < $carbon::now()->month)
-                                        <span class="badge badge-danger">belum di catat</span>
-                                        @else
-                                        <span class="badge badge-success">sudah di catat</span>
-                                        @endif
+                                            @if($value->bulan == "12" and $carbon::now()->month == "01")
+                                            <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button>
+                                            @elseif($value->bulan < $carbon::now()->month)
+                                                <a href="{{url('/admin/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
+                                                @else
+                                                <button type="button" class="btn btn-primary btn-sm" disabled>Input KWH Meter</button>
+                                                @endif
+
                                         </td>
-                                        <td>
-                                        @if($value->bulan == "12" and $carbon::now()->month == "01")
-                                        <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button> 
-                                        @elseif($value->bulan < $carbon::now()->month)
-                                        <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button> 
-                                        @else
-                                        <button type="button" class="btn btn-primary btn-sm" disabled>Input KWH Meter</button> 
-                                        @endif   
-                             
-                                    </td>
                                     </tr>
                                     @endforeach
 

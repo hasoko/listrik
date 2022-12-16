@@ -17,27 +17,19 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>ID Pelanggan</label>
-                                <input type="text" class="form-control" name="idpelanggan" placeholder="7680000" disabled>
+                                <input type="text" class="form-control" name="idpelanggan" placeholder="{{$kwhmeter->id_pelanggan}}" disabled>
                             </div>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
-                                <input type="text" class="form-control" name="namapelanggan" placeholder="Anjungan Jawa Barat" disabled>
+                                <input type="text" class="form-control" name="namapelanggan" placeholder="{{$kwhmeter->pelanggan->nama}}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Meter Awal (bulan kemarin)</label>
+                                <input type="text" class="form-control" name="kwhawal" placeholder="{{$kwhmeter->meter_akhir}}" disabled>
                             </div>
                             <div class="form-group">
                                 <label>Masukan KWH Meter</label>
                                 <input type="text" class="form-control" name="kwhmeter" autofocus="autofocus">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Foto KWH Meter</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                </div>
                             </div>
 
                         </div>
