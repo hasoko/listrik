@@ -38,6 +38,9 @@ Route::get('/admin/datapelanggan', [DataPelanggan::class, 'index']);
 Route::get('/admin/datapelanggan/input', [DataPelanggan::class, 'inputdatapelanggan']);
 Route::post('/admin/datapelanggan/simpan', [DataPelanggan::class, 'simpan']);
 Route::delete('/admin/datapelanggan/{id}', [DataPelanggan::class, 'hapus']);
+Route::get('/admin/datapelanggan/edit/{id}', [DataPelanggan::class, 'edit']);
+Route::put('/admin/datapelanggan/simpanubah/{id}', [DataPelanggan::class, 'simpanubah']);
+
 
 Route::get('/admin/dataunit', [DataUnit::class, 'index']);
 Route::get('/admin/dataunit/input', [DataUnit::class, 'inputdataunit']);

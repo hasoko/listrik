@@ -9,11 +9,12 @@ use App\Models\Unit;
 
 class DataKwhMeter extends Controller
 {
+
     public function index()
     {
         $data = [
-            'pelanggans' => Pelanggan::all(),
-            // 'kwhmeter' => Kwhmeter::all(),
+           
+            'kwhmeter' => Kwhmeter::all(),
             'halaman' => [
                 'title' => 'KWH Meter'
             ]

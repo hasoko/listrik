@@ -35,7 +35,7 @@
                                         <td>{{ $value->nama }}</td>
                                         <td>{{ $value->npwp }}</td>
                                         <td>{{ $value->telepon }}</td>
-                                        <td><button type="button" class="d-flex flex-row btn btn-primary btn-sm">Edit</button>
+                                        <td><a href="{{url('/admin/datapelanggan/edit/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a>
                                             <form action="{{url('/admin/datapelanggan/'.$value->id_pelanggan)}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">

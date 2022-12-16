@@ -77,6 +77,9 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
+            "columnDefs": [ { 
+                "searchable": false, 
+                "targets": [3,4] } ],
             "buttons": [  {
                 text: 'Input KWH Meter',
                 className: 'btn btn-success',
@@ -92,6 +95,9 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
+            "columnDefs": [ { 
+                "searchable": false, 
+                "targets": 5 } ],
             "buttons": [  {
                 text: 'Tambah Pelanggan',
                 className: 'btn btn-success',
@@ -108,6 +114,9 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
+            "columnDefs": [ { 
+                "searchable": false, 
+                "targets": 3 } ],
             "buttons": [  {
                 text: 'Tambah Data Unit',
                 className: 'btn btn-success',

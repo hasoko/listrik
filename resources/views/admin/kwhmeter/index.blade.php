@@ -1,6 +1,6 @@
 @include('admin.template.header')
 @include('admin.template.sidebar')
-
+@inject('carbon', 'Carbon\Carbon')
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -22,21 +22,34 @@
                                         <th>Nama Pelanggan</th>
                                         <th>Unit</th>
                                         <th>Status</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($pelanggans as $value)
+                                @foreach ($kwhmeter as $value)
                                     <tr>
                                         <td>{{ $value->id_pelanggan }}</td>
-                                        <td>{{ $value->nama }}</td>
-                                        <td>{{ $value->unit->nama_unit }}</td>
-                                        <td><button type="button" class="d-flex flex-row btn btn-primary btn-sm">Edit</button>
-                                            <form action="{{url('/admin/dataunit/'.$value->id_pelanggan)}}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button onclick="return confirm('Yakin Data {{ $value->id_unit }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
-                                            </form>
+                                        <td>{{ $value->pelanggan->nama }}</td>
+                                        <td>{{ $value->pelanggan->unit->nama_unit }}</td>
+                                        <td>
+                                        @if($value->bulan == "12" and $carbon::now()->month == "01")
+                                        <span class="badge badge-danger">belum di catat</span>
+                                        @elseif($value->bulan < $carbon::now()->month)
+                                        <span class="badge badge-danger">belum di catat</span>
+                                        @else
+                                        <span class="badge badge-success">sudah di catat</span>
+                                        @endif
                                         </td>
+                                        <td>
+                                        @if($value->bulan == "12" and $carbon::now()->month == "01")
+                                        <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button> 
+                                        @elseif($value->bulan < $carbon::now()->month)
+                                        <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button> 
+                                        @else
+                                        <button type="button" class="btn btn-primary btn-sm" disabled>Input KWH Meter</button> 
+                                        @endif   
+                             
+                                    </td>
                                     </tr>
                                     @endforeach
 

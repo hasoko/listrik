@@ -25,7 +25,7 @@ class User extends Authenticatable
     public $timestamps = false;
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class);
+        return $this->belongsTo(Pelanggan::class,'id_pelanggan');
     }
 
     public function informasi()

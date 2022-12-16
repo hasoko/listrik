@@ -23,21 +23,21 @@ class Pembayaran extends Model
     public $timestamps = false;
     public function tagihan()
     {
-        return $this->belongsTo(Tagihan::class);
+        return $this->belongsTo(Tagihan::class, 'id_tagihan');
     }
 
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class);
+        return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
 
-    public function id_kwhmeter()
+    public function kwhmeter()
     {
-        return $this->belongsTo(Kwhmeter::class);
+        return $this->belongsTo(Kwhmeter::class, 'id_kwhmeter');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
 }

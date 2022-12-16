@@ -70,7 +70,7 @@ class DataPelanggan extends Controller
         $tabelKwhmeter->tahun = $tahunini;
         $tabelKwhmeter->meter_awal = 0;
         $tabelKwhmeter->meter_akhir = $request->meter_dipasang;
-        $tabelKwhmeter->tanggal_catat = $tanggalskrg;
+        // $tabelKwhmeter->tanggal_catat = $tanggalskrg;
         $tabelKwhmeter->id_pelanggan = $idbaru;
         $tabelKwhmeter->save();
 
@@ -81,6 +81,31 @@ class DataPelanggan extends Controller
     {
         $model = Pelanggan::where('id_pelanggan', $id_pelanggan);
         $model->delete();
+        return redirect('/admin/datapelanggan');
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            'pelanggan' => Pelanggan::findOrFail($id),
+            'unit' => Unit::all(),
+            'halaman' => [
+                'title' => 'Edit Data Pelanggan'
+            ]
+        ];
+        return view('admin.datapelanggan.edit', $data);
+    }
+
+    public function simpanubah(Request $request, $id)
+    {
+        $tabelPelanggan = Pelanggan::findOrFail($id);
+        $tabelPelanggan->faktor_meter = $request->faktor_meter;
+        $tabelPelanggan->nama = $request->nama;
+        $tabelPelanggan->npwp = $request->npwp;
+        $tabelPelanggan->telepon = $request->telepon;
+        $tabelPelanggan->id_unit = $request->id_unit;
+        $tabelPelanggan->save();
+
         return redirect('/admin/datapelanggan');
     }
 }

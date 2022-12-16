@@ -22,12 +22,12 @@ class Tagihan extends Model
     public $timestamps = false;
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class);
+        return $this->belongsTo(Pelanggan::class,'id_pelanggan');
     }
 
     public function kwhmeter()
     {
-        return $this->belongsTo(Kwhmeter::class);
+        return $this->belongsTo(Kwhmeter::class,'id_kwhmeter');
     }
 
     public function pembayaran()
