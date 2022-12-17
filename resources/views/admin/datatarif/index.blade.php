@@ -18,25 +18,20 @@
                             <table id="datatarif" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID Tarif</th>
-                                        <th>Jenis</th>
-                                        <th>Tarif</th>
+                                        
+                                        <th>Kode</th>
+                                        <th>Tarif Per KWH</th>
                                          <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($tarif as $value)
                                     <tr>
-                                        <td>1</td>
-                                        <td>WBP</td>
-                                        <td>1100</td>
-                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
+                                        <td>{{ $value->kode_tarif }}</td>
+                                        <td>{{ $value->tarifperkwh }}</td>
+                                        <td><a href="{{url('/admin/datatarif/edit/'.$value->kode_tarif)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>LWBP</td>
-                                        <td>1300</td>
-                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
 
                             </table>

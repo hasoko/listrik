@@ -17,6 +17,7 @@ class CreateTarifTable extends Migration
             $table->engine = 'InnoDB';
             $table->char('id_tarif', 4);
             $table->primary('id_tarif');
+            $table->char('kode_tarif',4);
             $table->double('tarifperkwh');
         });
     }

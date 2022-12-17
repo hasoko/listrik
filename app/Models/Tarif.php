@@ -13,7 +13,7 @@ class Tarif extends Model
     protected $primaryKey = 'id_tarif';
     protected $fillable = [
 
-        'id_tarif', 'tarifperkwh',
+        'id_tarif', 'kode_tarif','tarifperkwh',
     ];
     public $timestamps = false;
 }

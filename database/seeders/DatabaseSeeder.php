@@ -144,11 +144,13 @@ class DatabaseSeeder extends Seeder
             [
 
                 'id_tarif' => 'lwbp',
+                'kode_tarif' => 'lwbp',
                 'tarifperkwh' => '1000',
             ],
             [
 
                 'id_tarif' => 'wbp',
+                'kode_tarif' => 'wbp',
                 'tarifperkwh' => '1100',
             ],
 

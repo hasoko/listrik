@@ -48,7 +48,7 @@ Route::get('/admin/dataunit/input', [DataUnit::class, 'inputdataunit']);
 Route::post('/admin/dataunit/simpan', [DataUnit::class, 'simpan']);
 
 Route::get('/admin/datatarif', [DataTarif::class, 'index']);
-Route::get('/admin/datatarif/input', [DataTarif::class, 'inputdatatarif']);
+Route::get('/admin/datatarif/edit/{id}', [DataTarif::class, 'edit']);
 
 Route::get('/admin/informasi', [Informasi::class, 'index']);
 Route::get('/admin/informasi/input', [Informasi::class, 'inputinformasi']);
