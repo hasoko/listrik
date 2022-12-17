@@ -13,11 +13,15 @@
                     </div> -->
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form action="{{url('/admin/kwhmeter/simpan')}}" method="POST">
+                        
+                        @csrf
+                        <input name="id_pelanggan" type="hidden" value="{{$kwhmeter->id_pelanggan}}">
+                        <input name="meter_awal" type="hidden" value="{{$kwhmeter->meter_akhir}}">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>ID Pelanggan</label>
-                                <input type="text" class="form-control" name="idpelanggan" placeholder="{{$kwhmeter->id_pelanggan}}" disabled>
+                                <input type="text" class="form-control" name="id_pelanggan" placeholder="{{$kwhmeter->id_pelanggan}}" value="{{$kwhmeter->id_pelanggan}}" disabled>
                             </div>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
@@ -25,13 +29,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Meter Awal (bulan kemarin)</label>
-                                <input type="text" class="form-control" name="kwhawal" placeholder="{{$kwhmeter->meter_akhir}}" disabled>
+                                <input type="text" class="form-control" name="meter_awal" value="{{$kwhmeter->meter_akhir}}" disabled>
                             </div>
                             <div class="form-group">
                                 <label>Masukan KWH Meter</label>
-                                <input type="text" class="form-control" name="kwhmeter" autofocus="autofocus">
+                                <input type="text" class="form-control" name="meter_akhir" autofocus="autofocus">
                             </div>
-
+                            
                         </div>
                         <!-- /.card-body -->
 
