@@ -128,7 +128,7 @@
         }).buttons().container().appendTo('#dataunit_wrapper .col-md-6:eq(0)');
 
 
-        $("#example1").DataTable({
+        $("#laporan").DataTable({
             "responsive": true,
             "lengthChange": false,
             "ordering": false,
@@ -163,7 +163,7 @@
                     text: "Cetak"
                 }
             ]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        }).buttons().container().appendTo('#laporan_wrapper .col-md-6:eq(0)');
 
 
         

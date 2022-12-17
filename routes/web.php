@@ -54,6 +54,8 @@ Route::get('/admin/informasi', [Informasi::class, 'index']);
 Route::get('/admin/informasi/input', [Informasi::class, 'inputinformasi']);
 
 Route::get('/admin/transaksipembayaran', [TransaksiPembayaran::class, 'index']);
+Route::get('/admin/transaksipembayaran/invoice/{id}', [TransaksiPembayaran::class, 'invoice']);
+Route::put('/admin/transaksipembayaran/bayar/{id}', [TransaksiPembayaran::class, 'bayar']);
 
 Route::get('/admin/laporan', [Laporan::class, 'index']);
 

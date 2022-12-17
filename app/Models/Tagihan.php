@@ -16,7 +16,7 @@ class Tagihan extends Model
     protected $primaryKey = 'id_tagihan';
     protected $fillable = [
 
-        'id_tagihan', 'bulan', 'tahun', 'jumlah_meter', 'lwbp', 'wbp', 'pjudki', 'pemeliharaan', 'materai', 'id_pelanggan', 'id_kwhmeter'
+        'id_tagihan', 'bulan', 'tahun', 'jumlah_meter', 'lwbp', 'wbp', 'pjudki', 'pemeliharaan', 'materai', 'status', 'id_pelanggan', 'id_kwhmeter'
     ];
 
     public $timestamps = false;

@@ -65,8 +65,10 @@ class DataKwhMeter extends Controller
         $jumlahlwbp = $tariflwbp * $jumlahmeter * 30 / 100 ;
         $jumlahwbp = $tarifwbp * $jumlahmeter * 60 / 100 ;
 
-        $jumlahpjudki = $jumlahmeter * 1 / 100;
-        $jumlahpemeliharaan = $jumlahmeter * 2 / 100;
+        $sebelumsubtotal = $jumlahlwbp + $jumlahwbp ;
+
+        $jumlahpjudki = $sebelumsubtotal * 1 / 100;
+        $jumlahpemeliharaan = $sebelumsubtotal * 2 / 100;
         
         $subtotal = $jumlahlwbp + $jumlahwbp + $jumlahpjudki + $jumlahpemeliharaan;
 
@@ -113,6 +115,7 @@ class DataKwhMeter extends Controller
         $tabelTagihan->pjudki = $jumlahpjudki;
         $tabelTagihan->pemeliharaan = $jumlahpemeliharaan;
         $tabelTagihan->materai = $materai;
+        $tabelTagihan->status = 'Belum Bayar';
         $tabelTagihan->id_pelanggan = $request->id_pelanggan;
         $tabelTagihan->id_kwhmeter = $idkwhbaru;
         $tabelTagihan->save();

@@ -9,7 +9,7 @@
                 <div class="card card-header">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan</h3>
+                            <h3 class="card-title">Transaksi Pembayaran</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -27,22 +27,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($tagihan as $value)
                                     <tr>
-                                        <td>TG00001</td>
-                                        <td>Anjungan Jawa Barat</td>
-                                        <td>Desember</td>
-                                        <td>2022</td>
+                                        <td>{{ $value->id_tagihan}}</td>
+                                        <td>{{ $value->pelanggan->nama}}</td>
+                                        <td>{{ $value->bulan}}</td>
+                                        <td>{{ $value->tahun}}</td>
+                                        @if( $value->status === 'Belum Bayar')
                                         <td><span class="badge badge-danger">Belum Bayar</span</td>
-                                        <td><button type="button" class="btn btn-success btn-sm">Pembayaran</button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>TG00002</td>
-                                        <td>Anjungan Jawa Timur</td>
-                                        <td>Desember</td>
-                                        <td>2022</td>
+                                        @else
                                         <td><span class="badge badge-success">Sudah Bayar</span</td>
-                                        <td><button type="button" class="btn btn-success btn-sm" disabled>Pembayaran</button> </td>
+                                        @endif
+
+                                        @if( $value->status === 'Belum Bayar')
+                                        <td><a href="{{url('/admin/transaksipembayaran/invoice/'.$value->id_tagihan)}}" role="button" class="flex-row btn btn-primary btn-sm">Pembayaran</a></td>
+                                        @else
+                                        <td><button type="button" class="btn btn-primary btn-sm" disabled>Pembayaran</button> </td>
+                                        @endif
+                                        
                                     </tr>
+                                    @endforeach
+
                                 </tbody>
                                 
                             </table>
