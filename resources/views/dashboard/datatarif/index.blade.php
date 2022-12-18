@@ -27,7 +27,7 @@
                                 <tbody>
                                     @foreach ($tarif as $value)
                                     <tr>
-                                        <td>{{ $value->kode_tarif }}</td>
+                                        <td>{{ Str::upper($value->kode_tarif) }}</td>
                                         <td>{{ $value->tarifperkwh }}</td>
                                         <td><a href="{{url('/dashboard/datatarif/edit/'.$value->kode_tarif)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a></td>
                                     </tr>

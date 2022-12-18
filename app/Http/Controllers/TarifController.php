@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Tarif;
 
-class DataTarif extends Controller
+class TarifController extends Controller
 {
     public function index()
     {
@@ -30,5 +30,13 @@ class DataTarif extends Controller
             ]
         ];
         return view('dashboard.datatarif.input', $data);
+    }
+    public function simpanubah(Request $request, $id)
+    {
+        $tabelTarif = Tarif::findOrFail($id);
+        $tabelTarif->tarifperkwh = $request->tarifperkwh;
+        $tabelTarif->save();
+
+        return redirect('/dashboard/datatarif');
     }
 }

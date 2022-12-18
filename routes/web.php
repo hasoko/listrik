@@ -1,18 +1,21 @@
 <?php
 
-use App\Http\Controllers\DataUnit;
-use App\Http\Controllers\DataPelanggan;
-use App\Http\Controllers\DataTarif;
-use App\Http\Controllers\HalamanDashboard;
-use App\Http\Controllers\Informasi;
-use App\Http\Controllers\DataKwhMeter;
-use App\Http\Controllers\Laporan;
+
+use App\Http\Controllers\UnitController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\TarifController;
+use App\Http\Controllers\HalamanDashboardController;
+use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\KwhMeterController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Profil;
-use App\Http\Controllers\Tagihan;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\TransaksiPembayaran;
-use GuzzleHttp\Middleware;
+
+use GuzzleHttp\MiddlewareController;
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,39 +39,40 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // route halaman admin
-Route::get('/dashboard', [HalamanDashboard::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [HalamanDashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/dashboard/kwhmeter', [DataKwhMeter::class, 'index']);
-Route::get('/dashboard/kwhmeter/input/{id}', [DataKwhMeter::class, 'inputkwh']);
-Route::post('/dashboard/kwhmeter/simpan', [DataKwhMeter::class, 'simpan']);
+Route::get('/dashboard/kwhmeter', [KwhMeterController::class, 'index']);
+Route::get('/dashboard/kwhmeter/input/{id}', [KwhMeterController::class, 'inputkwh']);
+Route::post('/dashboard/kwhmeter/simpan', [KwhMeterController::class, 'simpan']);
 
-Route::get('/dashboard/datapelanggan', [DataPelanggan::class, 'index']);
-Route::get('/dashboard/datapelanggan/input', [DataPelanggan::class, 'inputdatapelanggan']);
-Route::post('/dashboard/datapelanggan/simpan', [DataPelanggan::class, 'simpan']);
-Route::delete('/dashboard/datapelanggan/{id}', [DataPelanggan::class, 'hapus']);
-Route::get('/dashboard/datapelanggan/edit/{id}', [DataPelanggan::class, 'edit']);
-Route::put('/dashboard/datapelanggan/simpanubah/{id}', [DataPelanggan::class, 'simpanubah']);
+Route::get('/dashboard/datapelanggan', [PelangganController::class, 'index']);
+Route::get('/dashboard/datapelanggan/input', [PelangganController::class, 'inputdatapelanggan']);
+Route::post('/dashboard/datapelanggan/simpan', [PelangganController::class, 'simpan']);
+Route::delete('/dashboard/datapelanggan/{id}', [PelangganController::class, 'hapus']);
+Route::get('/dashboard/datapelanggan/edit/{id}', [PelangganController::class, 'edit']);
+Route::put('/dashboard/datapelanggan/simpanubah/{id}', [PelangganController::class, 'simpanubah']);
 
 
-Route::get('/dashboard/dataunit', [DataUnit::class, 'index']);
-Route::get('/dashboard/dataunit/input', [DataUnit::class, 'inputdataunit']);
-Route::post('/dashboard/dataunit/simpan', [DataUnit::class, 'simpan']);
+Route::get('/dashboard/dataunit', [UnitController::class, 'index']);
+Route::get('/dashboard/dataunit/input', [UnitController::class, 'inputdataunit']);
+Route::post('/dashboard/dataunit/simpan', [UnitController::class, 'simpan']);
 
-Route::get('/dashboard/datatarif', [DataTarif::class, 'index']);
-Route::get('/dashboard/datatarif/edit/{id}', [DataTarif::class, 'edit']);
+Route::get('/dashboard/datatarif', [TarifController::class, 'index']);
+Route::get('/dashboard/datatarif/edit/{id}', [TarifController::class, 'edit']);
+Route::put('/dashboard/datatarif/simpanubah/{id}', [arifController::class, 'simpanubah']);
 
-Route::get('/dashboard/informasi', [Informasi::class, 'index']);
-Route::get('/dashboard/informasi/input', [Informasi::class, 'inputinformasi']);
+Route::get('/dashboard/informasi', [InformasiController::class, 'index']);
+Route::get('/dashboard/informasi/input', [InformasiController::class, 'inputinformasi']);
 
-Route::get('/dashboard/transaksipembayaran', [TransaksiPembayaran::class, 'index']);
-Route::get('/dashboard/transaksipembayaran/invoice/{id}', [TransaksiPembayaran::class, 'invoice']);
+Route::get('/dashboard/transaksipembayaran', [TransaksiPembayaranController::class, 'index']);
+Route::get('/dashboard/transaksipembayaran/invoice/{id}', [TransaksiPembayaranController::class, 'invoice']);
 Route::put('/dashboard/transaksipembayaran/bayar/{id}', [TransaksiPembayaran::class, 'bayar']);
 
-Route::get('/dashboard/laporan', [Laporan::class, 'index']);
+Route::get('/dashboard/laporan', [LaporanController::class, 'index']);
 
-Route::get('/dashboard/profil', [Profil::class, 'index']);
+Route::get('/dashboard/profil', [ProfilController::class, 'index']);
 
-Route::get('/dashboard/tagihan', [Tagihan::class, 'index']);
+Route::get('/dashboard/tagihan', [TagihanController::class, 'index']);
 
     //end midleware
 // });

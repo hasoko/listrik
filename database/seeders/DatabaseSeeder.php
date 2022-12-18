@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
                 'tahun' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 50,
-                'tanggal_catat' => '2020-12-16',
+                'tanggal_catat' => '2022-12-16',
                 'id_pelanggan' => 750002,
 
             ],
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
                 'tahun' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 100,
-                'tanggal_catat' => '2020-11-16',
+                'tanggal_catat' => '2022-11-16',
                 'id_pelanggan' => 750001,
 
             ],
@@ -182,6 +182,18 @@ class DatabaseSeeder extends Seeder
             ],
 
         ];
+        $informasi = [
+            [
+
+                'id_informasi' => 1,
+                'judul' => 'Pemberitahuan Maintinance Listrik',
+                'isi' => 'Yang terhormat Bapak/Ibu Pelanggan, akan ada pemadaman listrik pada tanggal 1 Januari 2022 Pukul 22.00 Wib sd Selesai.',
+                'tanggal' => '2022-12-12',
+                'id_user' => 1,
+
+            ],
+
+        ];
 
         DB::table('user')->insert($user);
         DB::table('unit')->insert($unit);
@@ -189,5 +201,6 @@ class DatabaseSeeder extends Seeder
         DB::table('user')->insert($user2);
         DB::table('kwhmeter')->insert($kwhmeter);
         DB::table('tarif')->insert($tarif);
+        DB::table('informasi')->insert($informasi);
     }
 }

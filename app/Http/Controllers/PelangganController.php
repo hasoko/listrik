@@ -10,7 +10,7 @@ use App\Models\Kwhmeter;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
-class DataPelanggan extends Controller
+class PelangganController extends Controller
 {
     public function index()
     {

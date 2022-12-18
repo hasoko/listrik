@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
 use Illuminate\Http\Request;
 
-class Informasi extends Controller
+class InformasiController extends Controller
 {
     public function index()
     {
         $data = [
+            'informasi' => Informasi::all(),
             'halaman' => [
                 'title' => 'Informasi'
             ]

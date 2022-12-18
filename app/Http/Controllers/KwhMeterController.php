@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 use Carbon\Carbon;
 
-class DataKwhMeter extends Controller
+class KwhMeterController extends Controller
 {
 
     public function index()

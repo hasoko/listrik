@@ -26,6 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>1</td>
                                         <td>Pemadaman Listrik Sementara</td>
@@ -34,17 +35,7 @@
                                         <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-danger btn-sm">Hapus</button></td>
                                     </tr>
 
-
                                 </tbody>
-                                <!-- <tfoot>
-                                    <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                    
-                                    </tr>
-                                </tfoot> -->
                             </table>
 
                         </div>

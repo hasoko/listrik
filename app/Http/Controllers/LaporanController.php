@@ -6,7 +6,7 @@ use App\Models\Pembayaran;
 
 use Illuminate\Http\Request;
 
-class Laporan extends Controller
+class LaporanController extends Controller
 {
     public function index()
     {

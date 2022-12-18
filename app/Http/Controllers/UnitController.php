@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Unit;
 
-class DataUnit extends Controller
+class UnitController extends Controller
 {
     public function index()
     {

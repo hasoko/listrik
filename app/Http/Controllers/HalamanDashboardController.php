@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
 use Illuminate\Http\Request;
 
-class HalamanDashboard extends Controller
+class HalamanDashboardController extends Controller
 {
     public function index()
     // {
@@ -12,6 +13,7 @@ class HalamanDashboard extends Controller
     // }
     {
         $data = [
+            'informasi' => Informasi::all(),
             'halaman' => [
                 'title' => 'Dashboard'
             ]

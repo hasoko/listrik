@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 
-class TransaksiPembayaran extends Controller
+class TransaksiPembayaranController extends Controller
 {
     public function index()
     {

@@ -19,13 +19,13 @@ class User extends Authenticatable
     protected $primaryKey = 'id_user';
     protected $fillable = [
 
-        'id_user', 'username', 'password', 'status', 'id_pelanggan'
+        'id_user', 'username', 'password', 'level', 'id_pelanggan'
     ];
 
     public $timestamps = false;
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class,'id_pelanggan');
+        return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
 
     public function informasi()
