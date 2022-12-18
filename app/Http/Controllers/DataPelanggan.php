@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pelanggan;
-use App\Models\Unit;
-use App\Models\Kwhmeter;
-use Illuminate\Http\Request;
-
 use Carbon\Carbon;
+use App\Models\Unit;
+use App\Models\User;
+use App\Models\Kwhmeter;
+
+use App\Models\Pelanggan;
+use Illuminate\Http\Request;
 
 class DataPelanggan extends Controller
 {
@@ -19,7 +20,7 @@ class DataPelanggan extends Controller
                 'title' => 'Data Pelanggan'
             ]
         ];
-        return view('admin.datapelanggan.index', $data);
+        return view('dashboard.datapelanggan.index', $data);
     }
 
     public function inputdatapelanggan()
@@ -30,7 +31,7 @@ class DataPelanggan extends Controller
                 'title' => 'Input Data Pelanggan'
             ]
         ];
-        return view('admin.datapelanggan.input', $data);
+        return view('dashboard.datapelanggan.input', $data);
     }
 
     public function simpan(Request $request)
@@ -74,14 +75,20 @@ class DataPelanggan extends Controller
         $tabelKwhmeter->id_pelanggan = $idbaru;
         $tabelKwhmeter->save();
 
-        return redirect('/admin/datapelanggan');
+        $tabelUser = new User;
+        $tabelUser->username = $idbaru;
+        $tabelUser->password = bcrypt('123456');
+        $tabelUser->level = 'Pelanggan';
+        $tabelUser->save();
+
+        return redirect('/dashboard/datapelanggan');
     }
 
     public function hapus($id_pelanggan)
     {
         $model = Pelanggan::where('id_pelanggan', $id_pelanggan);
         $model->delete();
-        return redirect('/admin/datapelanggan');
+        return redirect('/dashboard/datapelanggan');
     }
 
     public function edit($id)
@@ -93,7 +100,7 @@ class DataPelanggan extends Controller
                 'title' => 'Edit Data Pelanggan'
             ]
         ];
-        return view('admin.datapelanggan.edit', $data);
+        return view('dashboard.datapelanggan.edit', $data);
     }
 
     public function simpanubah(Request $request, $id)
@@ -106,6 +113,6 @@ class DataPelanggan extends Controller
         $tabelPelanggan->id_unit = $request->id_unit;
         $tabelPelanggan->save();
 
-        return redirect('/admin/datapelanggan');
+        return redirect('/dashboard/datapelanggan');
     }
 }

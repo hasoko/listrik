@@ -16,6 +16,6 @@ class Laporan extends Controller
                 'title' => 'Laporan'
             ]
         ];
-        return view('admin.laporan.index', $data);
+        return view('dashboard.laporan.index', $data);
     }
 }

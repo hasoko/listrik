@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HalamanAdmin extends Controller
+class HalamanDashboard extends Controller
 {
     public function index()
     // {
-    //     return view('admin.index');
+    //     return view('dashboard.index');
     // }
-       {
+    {
         $data = [
             'halaman' => [
                 'title' => 'Dashboard'
             ]
-            
-        ];
-        return view('admin.index', $data);
-    }
 
+        ];
+        return view('dashboard.index', $data);
     }
+}

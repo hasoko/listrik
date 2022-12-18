@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <section class="content">
@@ -33,8 +33,8 @@
                                         <td>Publish</td>
                                         <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-danger btn-sm">Hapus</button></td>
                                     </tr>
-                                    
-                                   
+
+
                                 </tbody>
                                 <!-- <tfoot>
                                     <tr>
@@ -60,4 +60,4 @@
 <!-- /.content -->
 
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

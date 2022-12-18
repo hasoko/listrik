@@ -13,7 +13,7 @@ class Informasi extends Controller
                 'title' => 'Informasi'
             ]
         ];
-        return view('admin.informasi.index', $data);
+        return view('dashboard.informasi.index', $data);
     }
 
     public function inputinformasi()
@@ -23,6 +23,6 @@ class Informasi extends Controller
                 'title' => 'Input Informasi'
             ]
         ];
-        return view('admin.informasi.input', $data);
+        return view('dashboard.informasi.input', $data);
     }
 }

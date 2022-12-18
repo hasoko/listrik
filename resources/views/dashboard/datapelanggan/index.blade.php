@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 
 <!-- Main content -->
@@ -35,8 +35,8 @@
                                         <td>{{ $value->nama }}</td>
                                         <td>{{ $value->npwp }}</td>
                                         <td>{{ $value->telepon }}</td>
-                                        <td><a href="{{url('/admin/datapelanggan/edit/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a>
-                                            <form action="{{url('/admin/datapelanggan/'.$value->id_pelanggan)}}" method="POST">
+                                        <td><a href="{{url('/dashboard/datapelanggan/edit/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a>
+                                            <form action="{{url('/dashboard/datapelanggan/'.$value->id_pelanggan)}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button onclick="return confirm('Yakin Data {{ $value->nama }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
@@ -61,4 +61,4 @@
 
 <!-- /.content -->
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

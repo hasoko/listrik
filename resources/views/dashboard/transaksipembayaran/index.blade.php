@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <section class="content">
@@ -34,22 +34,22 @@
                                         <td>{{ $value->bulan}}</td>
                                         <td>{{ $value->tahun}}</td>
                                         @if( $value->status === 'Belum Bayar')
-                                        <td><span class="badge badge-danger">Belum Bayar</span</td>
+                                        <td><span class="badge badge-danger">Belum Bayar</span></td>
                                         @else
-                                        <td><span class="badge badge-success">Sudah Bayar</span</td>
+                                        <td><span class="badge badge-success">Sudah Bayar</span></td>
                                         @endif
 
                                         @if( $value->status === 'Belum Bayar')
-                                        <td><a href="{{url('/admin/transaksipembayaran/invoice/'.$value->id_tagihan)}}" role="button" class="flex-row btn btn-primary btn-sm">Pembayaran</a></td>
+                                        <td><a href="{{url('/dashboard/transaksipembayaran/invoice/'.$value->id_tagihan)}}" role="button" class="flex-row btn btn-primary btn-sm">Pembayaran</a></td>
                                         @else
                                         <td><button type="button" class="btn btn-primary btn-sm" disabled>Pembayaran</button> </td>
                                         @endif
-                                        
+
                                     </tr>
                                     @endforeach
 
                                 </tbody>
-                                
+
                             </table>
 
                         </div>
@@ -89,4 +89,4 @@
     });
 </script>
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

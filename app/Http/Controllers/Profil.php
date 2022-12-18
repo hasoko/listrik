@@ -13,6 +13,6 @@ class Profil extends Controller
                 'title' => 'Profil'
             ]
         ];
-        return view('pengguna.profil.index', $data);
+        return view('dashboard.profil.index', $data);
     }
 }

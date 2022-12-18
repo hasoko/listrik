@@ -8,13 +8,13 @@ class Tagihan extends Controller
 {
     public function index()
     {
-        $data = 
-        [
-            'halaman' => 
+        $data =
             [
-                'title' => 'Tagihan'
-            ]
-        ];
-        return view('pengguna.tagihan.index', $data);
+                'halaman' =>
+                [
+                    'title' => 'Tagihan'
+                ]
+            ];
+        return view('dashboard.tagihan.index', $data);
     }
 }

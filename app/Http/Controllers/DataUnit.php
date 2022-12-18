@@ -15,7 +15,7 @@ class DataUnit extends Controller
                 'title' => 'Data Unit'
             ]
         ];
-        return view('admin.dataunit.index', $data);
+        return view('dashboard.dataunit.index', $data);
     }
 
     public function inputdataunit()
@@ -25,7 +25,7 @@ class DataUnit extends Controller
                 'title' => 'Input Unit'
             ]
         ];
-        return view('admin.dataunit.input', $data);
+        return view('dashboard.dataunit.input', $data);
     }
 
     public function simpan(Request  $request)
@@ -35,7 +35,6 @@ class DataUnit extends Controller
         $tabelUnit->prefix = $request->prefix;
         $tabelUnit->save();
 
-        return redirect('/admin/dataunit');
-
+        return redirect('/dashboard/dataunit');
     }
 }

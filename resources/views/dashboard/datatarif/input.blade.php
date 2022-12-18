@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <section class="content">
@@ -34,4 +34,4 @@
 </section>
 <!-- /.content -->
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

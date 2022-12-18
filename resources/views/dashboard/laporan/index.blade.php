@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <section class="content">
@@ -25,7 +25,7 @@
                                         <th>Tanggal Bayar</th>
                                         <th>Total Bayar</th>
                                         <th>Status</th>
-                                       
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,7 +43,7 @@
                                     @endforeach
 
                                 </tbody>
-                                
+
                             </table>
 
                         </div>
@@ -83,4 +83,4 @@
     });
 </script>
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

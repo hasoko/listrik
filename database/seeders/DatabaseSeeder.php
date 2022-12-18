@@ -19,21 +19,21 @@ class DatabaseSeeder extends Seeder
                 'id_user' => 1,
                 'username' => 'admin',
                 'password' => bcrypt('123456'),
-                'status' => 'Admin',
+                'level' => 'Admin',
 
             ],
             [
                 'id_user' => 2,
                 'username' => 'kasir',
                 'password' => bcrypt('123456'),
-                'status' => 'Kasir',
+                'level' => 'Kasir',
 
             ],
             [
                 'id_user' => 3,
                 'username' => 'petugas',
                 'password' => bcrypt('123456'),
-                'status' => 'Petugas',
+                'level' => 'Petugas',
 
             ],
 
@@ -81,6 +81,33 @@ class DatabaseSeeder extends Seeder
                 'id_unit' => 1,
             ],
 
+
+        ];
+        $user2 = [
+            [
+                'id_user' => 4,
+                'username' => '750001',
+                'password' => bcrypt('123456'),
+                'level' => 'Pelanggan',
+                'id_pelanggan' => 750001,
+
+            ],
+            [
+                'id_user' => 5,
+                'username' => '750002',
+                'password' => bcrypt('123456'),
+                'level' => 'Pelanggan',
+                'id_pelanggan' => 750002,
+
+            ],
+            [
+                'id_user' => 6,
+                'username' => '750003',
+                'password' => bcrypt('123456'),
+                'level' => 'Pelanggan',
+                'id_pelanggan' => 750003,
+
+            ],
 
         ];
 
@@ -135,7 +162,7 @@ class DatabaseSeeder extends Seeder
                 'id_pelanggan' => 750001,
 
             ],
-            
+
 
         ];
 
@@ -159,6 +186,7 @@ class DatabaseSeeder extends Seeder
         DB::table('user')->insert($user);
         DB::table('unit')->insert($unit);
         DB::table('pelanggan')->insert($pelanggan);
+        DB::table('user')->insert($user2);
         DB::table('kwhmeter')->insert($kwhmeter);
         DB::table('tarif')->insert($tarif);
     }

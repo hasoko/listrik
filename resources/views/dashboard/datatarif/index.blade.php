@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <section class="content">
@@ -18,10 +18,10 @@
                             <table id="datatarif" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>Kode</th>
                                         <th>Tarif Per KWH</th>
-                                         <th>Aksi</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -29,7 +29,7 @@
                                     <tr>
                                         <td>{{ $value->kode_tarif }}</td>
                                         <td>{{ $value->tarifperkwh }}</td>
-                                        <td><a href="{{url('/admin/datatarif/edit/'.$value->kode_tarif)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a></td>
+                                        <td><a href="{{url('/dashboard/datatarif/edit/'.$value->kode_tarif)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -48,4 +48,4 @@
 </section>
 
 <!-- /.content -->
-@include('admin.template.footer')
+@include('dashboard.template.footer')

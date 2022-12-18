@@ -25,8 +25,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ url('/admin') }}" class="brand-link">
-                <img src="{{ asset('/lte') }}/dist/img/logotmiilistrik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="{{ url('/dashboard') }}" class="brand-link">
+                <img src="{{ asset('/lte') }}/dist/img/logotmiilistrik.png" alt="Listrik TMII" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Listrik TMII</span>
             </a>
 
@@ -51,7 +51,7 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-header">Administrator</li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/kwhmeter" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/kwhmeter" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     KWH Meter
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/datapelanggan" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/datapelanggan" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Data Pelanggan
@@ -67,31 +67,31 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/dataunit" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/dataunit" class="nav-link">
                                 <i class="nav-icon fas fa-bolt"></i>
                                 <p>Data Unit</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/datatarif" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/datatarif" class="nav-link">
                                 <i class="nav-icon fas fa-coins"></i>
                                 <p>Data Tarif</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/informasi" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/informasi" class="nav-link">
                                 <i class="nav-icon fas fa-comment"></i>
                                 <p>Informasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/transaksipembayaran" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/transaksipembayaran" class="nav-link">
                                 <i class="nav-icon fas fa-money-bill"></i>
                                 <p>Transaksi Pembayaran</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}/laporan" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/laporan" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Laporan
@@ -102,7 +102,7 @@
 
                         <li class="nav-header">Pengguna</li>
                         <li class="nav-item">
-                            <a href="{{ asset('/pengguna') }}/tagihan" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/tagihan" class="nav-link">
                                 <i class="nav-icon fas fa-file-invoice"></i>
                                 <p>
                                     Tagihan
@@ -110,7 +110,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/pengguna') }}/profil" class="nav-link">
+                            <a href="{{ asset('/dashboard') }}/profil" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Profil
@@ -119,7 +119,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ asset('/admin') }}" class="nav-link">
+                            <a href="{{ route('logout') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>
                                     Keluar

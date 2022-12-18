@@ -19,7 +19,7 @@ class CreateUserTable extends Migration
             // $table->primary('id_user');
             $table->string('username', 20)->unique();
             $table->string('password');
-            $table->string('status', 10);
+            $table->string('level', 10);
 
             $table->integer('id_pelanggan')->unsigned()->nullable();
             $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');

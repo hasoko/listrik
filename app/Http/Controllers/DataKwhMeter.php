@@ -29,7 +29,7 @@ class DataKwhMeter extends Controller
             ]
         ];
         // dd($data);
-        return view('admin.kwhmeter.index', $data);
+        return view('dashboard.kwhmeter.index', $data);
     }
 
     public function inputkwh($id)
@@ -43,14 +43,14 @@ class DataKwhMeter extends Controller
                 'title' => 'Input KWH'
             ]
         ];
-        return view('admin.kwhmeter.input', $data);
+        return view('dashboard.kwhmeter.input', $data);
     }
 
     public function simpan(Request $request)
-    
+
     {
 
-         
+
         $jumlahmeter = $request->meter_akhir - $request->meter_awal;
         // dd($request);
         // $idtagihan = Carbon::now()->format('y') .''. Carbon::now()->month .''.$request->id_pelanggan;
@@ -62,71 +62,71 @@ class DataKwhMeter extends Controller
         foreach ($wbp as $value);
         $tarifwbp = $value->tarifperkwh;
 
-        $jumlahlwbp = $tariflwbp * $jumlahmeter * 30 / 100 ;
-        $jumlahwbp = $tarifwbp * $jumlahmeter * 60 / 100 ;
+        $jumlahlwbp = $tariflwbp * $jumlahmeter * 30 / 100;
+        $jumlahwbp = $tarifwbp * $jumlahmeter * 60 / 100;
 
-        $sebelumsubtotal = $jumlahlwbp + $jumlahwbp ;
+        $sebelumsubtotal = $jumlahlwbp + $jumlahwbp;
 
         $jumlahpjudki = $sebelumsubtotal * 1 / 100;
         $jumlahpemeliharaan = $sebelumsubtotal * 2 / 100;
-        
+
         $subtotal = $jumlahlwbp + $jumlahwbp + $jumlahpjudki + $jumlahpemeliharaan;
 
-        if($subtotal >= 1000000){
+        if ($subtotal >= 1000000) {
             $materai = 10000;
-        }else{
+        } else {
             $materai = 0;
         }
 
         // echo $idtagihan;
 
-        if($request->meter_akhir < $request->meter_awal){
+        if ($request->meter_akhir < $request->meter_awal) {
             echo "gagal";
-        }else{
+        } else {
 
-        $bulanini = Carbon::now()->month;
-        $tahunini = Carbon::now()->year;
-        $tanggalskrg = Carbon::now()->toDateString();
-        $idtagihan = Carbon::now()->format('y') .''. Carbon::now()->month .''.$request->id_pelanggan;
-        
-
-
-        $tabelKwhmeter = new Kwhmeter;
-        $tabelKwhmeter->bulan = $bulanini;
-        $tabelKwhmeter->tahun = $tahunini;
-        $tabelKwhmeter->meter_awal = $request->meter_awal;
-        $tabelKwhmeter->meter_akhir = $request->meter_akhir;
-        $tabelKwhmeter->tanggal_catat = $tanggalskrg;
-        $tabelKwhmeter->id_pelanggan = $request->id_pelanggan;
-        $tabelKwhmeter->save();
+            $bulanini = Carbon::now()->month;
+            $tahunini = Carbon::now()->year;
+            $tanggalskrg = Carbon::now()->toDateString();
+            $idtagihan = Carbon::now()->format('y') . '' . Carbon::now()->month . '' . $request->id_pelanggan;
 
 
-        $getidkwh = Kwhmeter::select()->orderBy('id_kwhmeter', 'desc')->take(1)->get();
-        foreach ($getidkwh as $value);
-        $idkwhbaru = $value->id_kwhmeter;
 
-        $tabelTagihan = new Tagihan;
-        $tabelTagihan->id_tagihan = $idtagihan;
-        $tabelTagihan->bulan = $bulanini;
-        $tabelTagihan->tahun = $tahunini;
-        $tabelTagihan->jumlah_meter = $jumlahmeter;
-        $tabelTagihan->lwbp = $jumlahlwbp;
-        $tabelTagihan->wbp = $jumlahwbp;
-        $tabelTagihan->pjudki = $jumlahpjudki;
-        $tabelTagihan->pemeliharaan = $jumlahpemeliharaan;
-        $tabelTagihan->materai = $materai;
-        $tabelTagihan->status = 'Belum Bayar';
-        $tabelTagihan->id_pelanggan = $request->id_pelanggan;
-        $tabelTagihan->id_kwhmeter = $idkwhbaru;
-        $tabelTagihan->save();
+            $tabelKwhmeter = new Kwhmeter;
+            $tabelKwhmeter->bulan = $bulanini;
+            $tabelKwhmeter->tahun = $tahunini;
+            $tabelKwhmeter->meter_awal = $request->meter_awal;
+            $tabelKwhmeter->meter_akhir = $request->meter_akhir;
+            $tabelKwhmeter->tanggal_catat = $tanggalskrg;
+            $tabelKwhmeter->id_pelanggan = $request->id_pelanggan;
+            $tabelKwhmeter->save();
 
 
+            $getidkwh = Kwhmeter::select()->orderBy('id_kwhmeter', 'desc')->take(1)->get();
+            foreach ($getidkwh as $value);
+            $idkwhbaru = $value->id_kwhmeter;
+
+            $tabelTagihan = new Tagihan;
+            $tabelTagihan->id_tagihan = $idtagihan;
+            $tabelTagihan->bulan = $bulanini;
+            $tabelTagihan->tahun = $tahunini;
+            $tabelTagihan->jumlah_meter = $jumlahmeter;
+            $tabelTagihan->lwbp = $jumlahlwbp;
+            $tabelTagihan->wbp = $jumlahwbp;
+            $tabelTagihan->pjudki = $jumlahpjudki;
+            $tabelTagihan->pemeliharaan = $jumlahpemeliharaan;
+            $tabelTagihan->materai = $materai;
+            $tabelTagihan->status = 'Belum Bayar';
+            $tabelTagihan->id_pelanggan = $request->id_pelanggan;
+            $tabelTagihan->id_kwhmeter = $idkwhbaru;
+            $tabelTagihan->save();
 
 
 
 
 
-        return redirect('/admin/kwhmeter');
+
+
+            return redirect('/dashboard/kwhmeter');
         }
 
 
@@ -171,7 +171,6 @@ class DataKwhMeter extends Controller
         // $tabelKwhmeter->id_pelanggan = $idbaru;
         // $tabelKwhmeter->save();
 
-        // return redirect('/admin/datapelanggan');
+        // return redirect('/dashboard/datapelanggan');
     }
-
 }

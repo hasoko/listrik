@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <section class="content">
@@ -12,14 +12,15 @@
                     </div> -->
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{url('/admin/datapelanggan/simpan')}}" method="POST">
+                    <form action="{{url('/dashboard/datapelanggan/simpanubah/'. $pelanggan->id_pelanggan )}}" method="POST">
                         @csrf
+                        {{ method_field('PUT') }}
                         <div class="card-body">
 
                             <div class="form-group col-md-4">
                                 <label>Unit</label>
                                 <select class="form-control" name="id_unit">
-                                    <!-- <option selected>Pilih Unit</option> -->
+                                    <option value="{{ $pelanggan->unit->id_unit }}" selected>{{ $pelanggan->unit->nama_unit }}</option>
                                     @foreach($unit as $value)
                                     <option value="{{ $value->id_unit }}">{{ $value->nama_unit }}</option>
                                     @endforeach
@@ -27,23 +28,19 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Faktor Meter</label>
-                                <input type="text" class="form-control" name="faktor_meter" placeholder="Faktor Meter" autofocus="autofocus">
+                                <input type="text" class="form-control" name="faktor_meter" placeholder="Faktor Meter" value="{{ $pelanggan->faktor_meter }}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Nama</label>
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Pelanggan">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Pelanggan" value="{{ $pelanggan->nama }}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>NPWP</label>
-                                <input type="text" class="form-control" name="npwp" placeholder="no NPWP jika ada">
+                                <input type="text" class="form-control" name="npwp" placeholder="no NPWP jika ada" value="{{ $pelanggan->npwp }}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>No Telepon</label>
-                                <input type="text" class="form-control" name="telepon" placeholder="No Telepon">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Jumlah KWH Pertama Pasang</label>
-                                <input type="text" class="form-control" name="meter_dipasang" placeholder="Jumlah KWH" value="0">
+                                <input type="text" class="form-control" name="telepon" placeholder="No Telepon" value="{{ $pelanggan->telepon }}">
                             </div>
 
                         </div>
@@ -60,4 +57,4 @@
 </section>
 <!-- /.content -->
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

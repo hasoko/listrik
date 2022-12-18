@@ -1,8 +1,8 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
-<!-- <a href="/admin/datadaya/input">input</a> -->
+<!-- <a href="/dashboard/datadaya/input">input</a> -->
 <!-- /.content -->
 
 <!-- Main content -->
@@ -27,7 +27,7 @@
                                         <th>Kode Prefix</th>
                                         <th>Aksi</th>
 
-                                 </tr>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($unit as $value)
@@ -36,7 +36,7 @@
                                         <td>{{ $value->nama_unit }}</td>
                                         <td>{{ $value->prefix }}</td>
                                         <td><button type="button" class="d-flex flex-row btn btn-primary btn-sm">Edit</button>
-                                            <form action="{{url('/admin/dataunit/'.$value->id_pelanggan)}}" method="POST">
+                                            <form action="{{url('/dashboard/dataunit/'.$value->id_pelanggan)}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button onclick="return confirm('Yakin Data {{ $value->nama_unit }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
@@ -61,4 +61,4 @@
 
 <!-- /.content -->
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

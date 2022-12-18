@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 @inject('carbon', 'Carbon\Carbon')
 <!-- Main content -->
 <section class="content">
@@ -54,7 +54,7 @@
                                             @if($value->bulan == "12" and $carbon::now()->month == "01")
                                             <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button>
                                             @elseif($value->bulan < $carbon::now()->month)
-                                                <a href="{{url('/admin/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
+                                                <a href="{{url('/dashboard/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
                                                 @elseif($value->bulan == $carbon::now()->month)
                                                 <button type="button" class="btn btn-primary btn-sm" disabled>Input KWH Meter</button>
                                                 @else
@@ -90,4 +90,4 @@
 
 <!-- /.content -->
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')

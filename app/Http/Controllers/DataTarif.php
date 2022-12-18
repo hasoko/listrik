@@ -17,7 +17,7 @@ class DataTarif extends Controller
             ]
         ];
         // dd($data);
-        return view('admin.datatarif.index', $data);
+        return view('dashboard.datatarif.index', $data);
     }
 
     public function edit($id)
@@ -29,6 +29,6 @@ class DataTarif extends Controller
                 'title' => 'Edit Tarif'
             ]
         ];
-        return view('admin.datatarif.input', $data);
+        return view('dashboard.datatarif.input', $data);
     }
 }

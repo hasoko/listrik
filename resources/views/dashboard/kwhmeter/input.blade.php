@@ -1,5 +1,5 @@
-@include('admin.template.header')
-@include('admin.template.sidebar')
+@include('dashboard.template.header')
+@include('dashboard.template.sidebar')
 
 <!-- Main content -->
 <!-- Main content -->
@@ -13,8 +13,8 @@
                     </div> -->
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{url('/admin/kwhmeter/simpan')}}" method="POST">
-                        
+                    <form action="{{url('/dashboard/kwhmeter/simpan')}}" method="POST">
+
                         @csrf
                         <input name="id_pelanggan" type="hidden" value="{{$kwhmeter->id_pelanggan}}">
                         <input name="meter_awal" type="hidden" value="{{$kwhmeter->meter_akhir}}">
@@ -35,7 +35,7 @@
                                 <label>Masukan KWH Meter</label>
                                 <input type="text" class="form-control" name="meter_akhir" autofocus="autofocus">
                             </div>
-                            
+
                         </div>
                         <!-- /.card-body -->
 
@@ -51,4 +51,4 @@
 <!-- /.content -->
 <!-- /.content -->
 
-@include('admin.template.footer')
+@include('dashboard.template.footer')
