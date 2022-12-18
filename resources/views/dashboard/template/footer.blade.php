@@ -77,17 +77,11 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
-            "columnDefs": [ { 
-                "searchable": false, 
-                "targets": [3,4] } ],
-            "buttons": [  {
-                text: 'Input KWH Meter',
-                className: 'btn btn-success',
-                action: function ( e, dt, node, config ) {
-                    location.href = "kwhmeter/input";
-                }
-            }
-        ]
+            "columnDefs": [{
+                "searchable": false,
+                "targets": [3, 4]
+            }],
+
         }).buttons().container().appendTo('#kwhmeter_wrapper .col-md-6:eq(0)');
 
         $("#datapelanggan").DataTable({
@@ -95,17 +89,17 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
-            "columnDefs": [ { 
-                "searchable": false, 
-                "targets": 5 } ],
-            "buttons": [  {
+            "columnDefs": [{
+                "searchable": false,
+                "targets": 5
+            }],
+            "buttons": [{
                 text: 'Tambah Pelanggan',
                 className: 'btn btn-success',
-                action: function ( e, dt, node, config ) {
+                action: function(e, dt, node, config) {
                     location.href = "datapelanggan/input";
                 }
-            }
-        ]
+            }]
         }).buttons().container().appendTo('#datapelanggan_wrapper .col-md-6:eq(0)');
 
 
@@ -114,17 +108,17 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
-            "columnDefs": [ { 
-                "searchable": false, 
-                "targets": 3 } ],
-            "buttons": [  {
+            "columnDefs": [{
+                "searchable": false,
+                "targets": 3
+            }],
+            "buttons": [{
                 text: 'Tambah Data Unit',
                 className: 'btn btn-success',
-                action: function ( e, dt, node, config ) {
+                action: function(e, dt, node, config) {
                     location.href = "dataunit/input";
                 }
-            }
-        ]
+            }]
         }).buttons().container().appendTo('#dataunit_wrapper .col-md-6:eq(0)');
 
 
@@ -165,24 +159,37 @@
             ]
         }).buttons().container().appendTo('#laporan_wrapper .col-md-6:eq(0)');
 
+        $("#transaksipembayaran").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "ordering": false,
+            "autoWidth": false,
+            "columnDefs": [{
+                "searchable": false,
+                "targets": [4, 5]
+            }],
 
-        
+        }).buttons().container().appendTo('#transaksipembayaran_wrapper .col-md-6:eq(0)');
+
         $("#informasi").DataTable({
             "responsive": true,
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
-            "buttons": [  {
+            "columnDefs": [{
+                "searchable": false,
+                "targets": [3, 4]
+            }],
+            "buttons": [{
                 text: 'Tambah Informasi',
                 className: 'btn btn-success',
-                action: function ( e, dt, node, config ) {
+                action: function(e, dt, node, config) {
                     location.href = "informasi/input";
                 }
-            }
-        ]
+            }]
         }).buttons().container().appendTo('#informasi_wrapper .col-md-6:eq(0)');
 
-});
+    });
 </script>
 </body>
 

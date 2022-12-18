@@ -21,20 +21,29 @@
                                         <th>ID</th>
                                         <th>Judul</th>
                                         <th>Tanggal Posting</th>
-                                        <th>Status</th>
+                                        <th>User</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($informasi as $value)
 
                                     <tr>
-                                        <td>1</td>
-                                        <td>Pemadaman Listrik Sementara</td>
-                                        <td>12/5/2022</td>
-                                        <td>Publish</td>
-                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-danger btn-sm">Hapus</button></td>
-                                    </tr>
+                                        <td>{{ $value->id_informasi }}</td>
+                                        <td>{{ $value->judul }}</td>
+                                        <td>{{ $value->tanggal }}</td>
+                                        <td>{{ $value->user->username }}</td>
 
+                                        <td><a href="{{url('/dashboard/informasi/edit/'.$value->id_informasi)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a>
+                                            <form action="{{url('/dashboard/informasi/'.$value->id_informasi)}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button onclick="return confirm('Yakin Data {{ $value->judul }} di hapus?')" class="d-flex flex-row btn btn-danger btn-sm">Hapus</button>
+                                            </form>
+                                        </td>
+
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 

@@ -11,7 +11,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TagihanController;
-use App\Http\Controllers\TransaksiPembayaran;
+use App\Http\Controllers\TransaksiPembayaranController;
 
 use GuzzleHttp\MiddlewareController;
 use Illuminate\Support\Facades\Route;
@@ -59,10 +59,14 @@ Route::post('/dashboard/dataunit/simpan', [UnitController::class, 'simpan']);
 
 Route::get('/dashboard/datatarif', [TarifController::class, 'index']);
 Route::get('/dashboard/datatarif/edit/{id}', [TarifController::class, 'edit']);
-Route::put('/dashboard/datatarif/simpanubah/{id}', [arifController::class, 'simpanubah']);
+Route::put('/dashboard/datatarif/simpanubah/{id}', [TarifController::class, 'simpanubah']);
 
 Route::get('/dashboard/informasi', [InformasiController::class, 'index']);
-Route::get('/dashboard/informasi/input', [InformasiController::class, 'inputinformasi']);
+Route::get('/dashboard/informasi/input', [InformasiController::class, 'input']);
+Route::post('/dashboard/informasi/simpan', [InformasiController::class, 'simpan']);
+Route::delete('/dashboard/informasi/{id}', [InformasiController::class, 'hapus']);
+Route::get('/dashboard/informasi/edit/{id}', [InformasiController::class, 'edit']);
+Route::put('/dashboard/informasi/simpanubah/{id}', [InformasiController::class, 'simpanubah']);
 
 Route::get('/dashboard/transaksipembayaran', [TransaksiPembayaranController::class, 'index']);
 Route::get('/dashboard/transaksipembayaran/invoice/{id}', [TransaksiPembayaranController::class, 'invoice']);

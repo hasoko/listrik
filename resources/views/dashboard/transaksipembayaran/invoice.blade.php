@@ -83,22 +83,52 @@
                         <!-- Table row -->
                         <div class="row">
                           <div class="col-12 table-responsive">
-                            <table class="table table-borderless">
+                            <!-- <table class="table table-borderless"> -->
+                            <table class="table table-sm">
 
                               <tbody>
+                                <tr>
+                                  <td colspan="5"><b>KWH Pemakaian</b></td>
+                                </tr>
+                                <tr>
+                                  <td>Meter Akhir</td>
+                                  <td colspan="3">
+                                    {{ $tagihan->kwhmeter->meter_akhir }}
+                                  </td>
+
+                                </tr>
+                                <tr>
+                                  <td>Meter Awal</td>
+                                  <td colspan="3">
+                                    {{ $tagihan->kwhmeter->meter_awal }}
+                                  </td>
+                                <tr>
+                                  <td><span class="text-muted"><small>(Meter Akhir - Meter Awal) x Faktor Meter</small></span></td>
+                                  <td colspan="3">
+                                    {{ $tagihan->jumlah_meter }}
+                                  </td>
+
+                                </tr>
                                 <tr>
                                   <td colspan="5"><b>Biaya Pemakaian</b></td>
                                 </tr>
                                 <tr>
                                   <td>LWBP</td>
-                                  <td>{{$lwbp}}</td>
+                                  <td>
+                                    @foreach ($lwbp as $value)
+                                    {{$value->tarifperkwh}}
+                                    @endforeach
+                                  </td>
                                   <td>x</td>
                                   <td>1.033</td>
                                   <td>{{ $tagihan->lwbp }}</td>
                                 </tr>
                                 <tr>
                                   <td>WBP</td>
-                                  <td>321</td>
+                                  <td>@foreach ($wbp as $value)
+                                    {{$value->tarifperkwh}}
+                                    @endforeach
+                                  </td>
                                   <td>x</td>
                                   <td>1.584</td>
                                   <td><u>{{ $tagihan->wbp }}</u></td>

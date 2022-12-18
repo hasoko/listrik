@@ -50,9 +50,9 @@ class KwhMeterController extends Controller
 
     {
 
+        dd($request);
+        $jumlahmeter = ($request->meter_akhir - $request->meter_awal) * $request->faktor_meter;
 
-        $jumlahmeter = $request->meter_akhir - $request->meter_awal;
-        // dd($request);
         // $idtagihan = Carbon::now()->format('y') .''. Carbon::now()->month .''.$request->id_pelanggan;
         $lwbp = Tarif::where('id_tarif', 'lwbp')->get();
         foreach ($lwbp as $value);
@@ -62,8 +62,8 @@ class KwhMeterController extends Controller
         foreach ($wbp as $value);
         $tarifwbp = $value->tarifperkwh;
 
-        $jumlahlwbp = $tariflwbp * $jumlahmeter * 30 / 100;
-        $jumlahwbp = $tarifwbp * $jumlahmeter * 60 / 100;
+        $jumlahlwbp = $tariflwbp * $jumlahmeter * 67 / 100;
+        $jumlahwbp = $tarifwbp * $jumlahmeter * 33 / 100;
 
         $sebelumsubtotal = $jumlahlwbp + $jumlahwbp;
 

@@ -27,8 +27,8 @@ class TransaksiPembayaranController extends Controller
     {
         $data = [
             'tagihan' => Tagihan::findOrFail($id),
-            'lwbp' => Tarif::where('id_tarif', 'lwbp')->get(),
-            'wbp' => Tarif::where('id_tarif', 'wbp')->get(),
+            'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
+            'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
             'halaman' => [
                 'title' => 'Invoice'
             ]
