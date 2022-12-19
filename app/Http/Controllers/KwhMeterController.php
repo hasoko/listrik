@@ -94,7 +94,6 @@ class KwhMeterController extends Controller
             $idtagihan = Carbon::now()->format('y') . '' . Carbon::now()->month . '' . $request->id_pelanggan;
 
 
-
             $tabelKwhmeter = new Kwhmeter;
             $tabelKwhmeter->bulan = $bulanini;
             $tabelKwhmeter->tahun = $tahunini;
@@ -124,57 +123,7 @@ class KwhMeterController extends Controller
             $tabelTagihan->id_kwhmeter = $idkwhbaru;
             $tabelTagihan->save();
 
-
-
-
-
-
-
             return redirect('/dashboard/kwhmeter')->with('toast_success', 'Berhasil disimpan!');
         }
-
-
-
-        ///////////////
-
-
-        // membuat ID Pelanggan
-        // if (Pelanggan::where('id_unit', $request->id_unit)->count() > 0) {
-        //     $prefixid = Pelanggan::where('id_unit', $request->id_unit)->orderBy('id_pelanggan', 'desc')->take(1)->get();
-        //     foreach ($prefixid as $value);
-        //     $idbaru = $value->id_pelanggan + 1;
-        // } else {
-        //     $prefixid = Unit::where('id_unit', $request->id_unit)->take(1)->get();
-        //     foreach ($prefixid as $unit);
-        //     $idbaru = $unit->prefix . '' . '0001';
-        // }
-        // echo $prefixid;
-        // echo Carbon::now()->month;
-        // echo Carbon::now()->year;
-        // echo Carbon::now()->toDateString();
-
-        // $tabelPelanggan = new Pelanggan;
-        // $tabelPelanggan->id_pelanggan = $idbaru;
-        // $tabelPelanggan->faktor_meter = $request->faktor_meter;
-        // $tabelPelanggan->nama = $request->nama;
-        // $tabelPelanggan->npwp = $request->npwp;
-        // $tabelPelanggan->telepon = $request->telepon;
-        // $tabelPelanggan->id_unit = $request->id_unit;
-        // $tabelPelanggan->save();
-
-        // $bulanini = Carbon::now()->month;
-        // $tahunini = Carbon::now()->year;
-        // $tanggalskrg = Carbon::now()->toDateString();
-
-        // $tabelKwhmeter = new Kwhmeter;
-        // $tabelKwhmeter->bulan = $bulanini;
-        // $tabelKwhmeter->tahun = $tahunini;
-        // $tabelKwhmeter->meter_awal = 0;
-        // $tabelKwhmeter->meter_akhir = $request->meter_dipasang;
-        // $tabelKwhmeter->tanggal_catat = $tanggalskrg;
-        // $tabelKwhmeter->id_pelanggan = $idbaru;
-        // $tabelKwhmeter->save();
-
-        // return redirect('/dashboard/datapelanggan');
     }
 }
