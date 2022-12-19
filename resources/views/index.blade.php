@@ -24,7 +24,7 @@
         <a href="../../index2.html" class="h1"><b>Listrik</b> TMII</a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">masukkan username dan password anda</p>
+        <p class="login-box-msg text-muted">masukkan username dan password anda</p>
 
         <form action="/login" method="post">
           @csrf
