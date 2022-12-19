@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Tarif;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class TarifController extends Controller
 {
     public function index()
@@ -37,6 +39,6 @@ class TarifController extends Controller
         $tabelTarif->tarifperkwh = $request->tarifperkwh;
         $tabelTarif->save();
 
-        return redirect('/dashboard/datatarif');
+        return redirect('/dashboard/datatarif')->with('toast_success', 'Berhasil diedit!');
     }
 }

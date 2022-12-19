@@ -10,6 +10,8 @@ use App\Models\Kwhmeter;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class PelangganController extends Controller
 {
     public function index()
@@ -81,14 +83,14 @@ class PelangganController extends Controller
         $tabelUser->level = 'Pelanggan';
         $tabelUser->save();
 
-        return redirect('/dashboard/datapelanggan');
+        return redirect('/dashboard/datapelanggan')->with('toast_success', 'Berhasil disimpan!');
     }
 
     public function hapus($id_pelanggan)
     {
         $model = Pelanggan::where('id_pelanggan', $id_pelanggan);
         $model->delete();
-        return redirect('/dashboard/datapelanggan');
+        return redirect('/dashboard/datapelanggan')->with('toast_success', 'Berhasil dihapus!');
     }
 
     public function edit($id)
@@ -113,6 +115,6 @@ class PelangganController extends Controller
         $tabelPelanggan->id_unit = $request->id_unit;
         $tabelPelanggan->save();
 
-        return redirect('/dashboard/datapelanggan');
+        return redirect('/dashboard/datapelanggan')->with('toast_success', 'Berhasil diedit!');
     }
 }

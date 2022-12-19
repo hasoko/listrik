@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Unit;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class UnitController extends Controller
 {
     public function index()
@@ -35,6 +37,6 @@ class UnitController extends Controller
         $tabelUnit->prefix = $request->prefix;
         $tabelUnit->save();
 
-        return redirect('/dashboard/dataunit');
+        return redirect('/dashboard/dataunit')->with('toast_success', 'Berhasil disimpan!');
     }
 }

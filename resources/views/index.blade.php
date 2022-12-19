@@ -90,6 +90,9 @@
   <script src="{{ asset('/lte') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset('/lte') }}/dist/js/adminlte.min.js"></script>
+
+  @include('sweetalert::alert')
+
 </body>
 
 </html>

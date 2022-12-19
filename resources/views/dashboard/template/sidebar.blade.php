@@ -1,10 +1,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
-        <!-- <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('/lte') }}/dist/img/logotmiilistrik.png" alt="logotmiilistrik" height="60" width="60">
-        </div> -->
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -38,7 +34,11 @@
                         <img src="{{ asset('/lte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Gigih Hasoko W.</a>
+                        <a href="#" class="d-block">
+                            @if ( auth()->user()->level == "Pelanggan")
+                            {{ auth()->user()->pelanggan->nama }}
+                            @else {{ auth()->user()->level }}
+                            @endif </a>
                     </div>
                 </div>
 
@@ -49,7 +49,8 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-header">Administrator</li>
+                        <!-- <li class="nav-header">Administrator</li> -->
+                        @if ( auth()->user()->level == "Admin" || auth()->user()->level == "Petugas")
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/kwhmeter" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
@@ -58,6 +59,8 @@
                                 </p>
                             </a>
                         </li>
+                        @endif
+                        @if ( auth()->user()->level == "Admin")
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/datapelanggan" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
@@ -84,12 +87,16 @@
                                 <p>Informasi</p>
                             </a>
                         </li>
+                        @endif
+                        @if ( auth()->user()->level == "Admin" || auth()->user()->level == "Kasir")
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/transaksipembayaran" class="nav-link">
                                 <i class="nav-icon fas fa-money-bill"></i>
                                 <p>Transaksi Pembayaran</p>
                             </a>
                         </li>
+                        @endif
+                        @if ( auth()->user()->level == "Admin" )
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/laporan" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
@@ -98,9 +105,10 @@
                                 </p>
                             </a>
                         </li>
+                        @endif
 
-
-                        <li class="nav-header">Pengguna</li>
+                        @if ( auth()->user()->level == "Pelanggan")
+                        <li class="nav-header">Pelanggan</li>
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/tagihan" class="nav-link">
                                 <i class="nav-icon fas fa-file-invoice"></i>
@@ -117,7 +125,7 @@
                                 </p>
                             </a>
                         </li>
-
+                        @endif
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>

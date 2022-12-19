@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class TransaksiPembayaranController extends Controller
 {
     public function index()
@@ -72,6 +74,6 @@ class TransaksiPembayaranController extends Controller
         // $tabelPelanggan->id_unit = $request->id_unit;
         // $tabelPelanggan->save();
 
-        return redirect('/dashboard/transaksipembayaran');
+        return redirect('/dashboard/transaksipembayaran')->with('toast_success', 'Berhasil dibayar!');
     }
 }

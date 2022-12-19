@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Riskihajar\Terbilang\TerbilangServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Terbilang' => Riskihajar\Terbilang\Facades\Terbilang::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
     ],
 

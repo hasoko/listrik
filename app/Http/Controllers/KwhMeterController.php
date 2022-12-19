@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 
 use Carbon\Carbon;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class KwhMeterController extends Controller
 {
 
@@ -128,7 +130,7 @@ class KwhMeterController extends Controller
 
 
 
-            return redirect('/dashboard/kwhmeter');
+            return redirect('/dashboard/kwhmeter')->with('toast_success', 'Berhasil disimpan!');
         }
 
 
