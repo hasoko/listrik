@@ -41,7 +41,7 @@ class TransaksiPembayaranController extends Controller
     public function bayar(Request $request, $id)
     {
 
-        // dd($idpembayaran);
+        // dd($request);
 
         $tanggalskrg = Carbon::now()->toDateString();
         $waktu = Carbon::now();
@@ -56,7 +56,7 @@ class TransaksiPembayaranController extends Controller
         $tabelPembayaran = new Pembayaran;
         $tabelPembayaran->id_pembayaran = $waktu->year . '' . $waktu->month . '' . $waktu->day . '' . $request->id_kwhmeter;
         $tabelPembayaran->tanggal_bayar = $tanggalskrg;
-        $tabelPembayaran->total_bayar = 1000000; //masih dumy
+        $tabelPembayaran->total_bayar = $request->total_bayar;
         $tabelPembayaran->id_tagihan = $id;
         $tabelPembayaran->id_pelanggan = $request->id_pelanggan;
         $tabelPembayaran->id_kwhmeter = $request->id_kwhmeter;

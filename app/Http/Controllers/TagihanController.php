@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tagihan;
 use Illuminate\Http\Request;
 
 class TagihanController extends Controller
@@ -10,6 +11,7 @@ class TagihanController extends Controller
     {
         $data =
             [
+                'tagihan' => Tagihan::all(),
                 'halaman' =>
                 [
                     'title' => 'Tagihan'

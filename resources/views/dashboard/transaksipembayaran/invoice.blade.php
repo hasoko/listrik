@@ -25,15 +25,9 @@
                     <input name="id_pelanggan" type="hidden" value="{{$tagihan->id_pelanggan}}">
                     <input name="id_kwhmeter" type="hidden" value="{{$tagihan->id_kwhmeter}}">
                     <input name="id_tagihan" type="hidden" value="{{$tagihan->id_tagihan}}">
+                    <input name="total_bayar" type="hidden" value="{{ round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai) }}">
 
-                    <!-- <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#terakhir" data-toggle="tab">Tagihan Terakhir</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#histori" data-toggle="tab">Histori</a></li>
-                </ul> -->
-                    <!-- <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a> -->
                     Total Tagihan
-                    <!-- <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Bayar</button> -->
-                    <!-- <a href="{{url('/dashboard/transaksipembayaran/bayar/'.$tagihan->id_tagihan)}}" role="button" class="btn btn-success btn-sm float-right"><i class="far fa-credit-card"></i> Bayar</a> -->
                     <button type="submit" class="btn btn-primary">Simpan</button>
                   </form>
                 </div>
@@ -92,72 +86,77 @@
                                 </tr>
                                 <tr>
                                   <td>Meter Akhir</td>
-                                  <td colspan="3">
+                                  <td colspan="4">
                                     {{ $tagihan->kwhmeter->meter_akhir }}
                                   </td>
 
                                 </tr>
                                 <tr>
                                   <td>Meter Awal</td>
-                                  <td colspan="3">
+                                  <td colspan="4">
                                     {{ $tagihan->kwhmeter->meter_awal }}
                                   </td>
                                 <tr>
-                                  <td><span class="text-muted"><small>(Meter Akhir - Meter Awal) x Faktor Meter</small></span></td>
-                                  <td colspan="3">
+                                  <td>Jumlah KWH <span class="text-muted"><small>(Meter Akhir - Meter Awal) x Faktor Meter</small></span></td>
+                                  <td colspan="4">
                                     {{ $tagihan->jumlah_meter }}
                                   </td>
-
                                 </tr>
+
                                 <tr>
                                   <td colspan="5"><b>Biaya Pemakaian</b></td>
                                 </tr>
                                 <tr>
                                   <td>LWBP</td>
                                   <td>
-                                    @foreach ($lwbp as $value)
-                                    {{$value->tarifperkwh}}
-                                    @endforeach
+                                    {{ number_format($tagihan->jumlah_meter * 67 / 100, 0, ',', '.') }}
                                   </td>
                                   <td>x</td>
-                                  <td>1.033</td>
-                                  <td>{{ $tagihan->lwbp }}</td>
+                                  <td>@foreach ($lwbp as $value)
+                                    {{number_format($value->tarifperkwh, 0, ',', '.')}}
+                                    @endforeach
+                                  </td>
+                                  <td>
+                                    Rp. {{ number_format($tagihan->lwbp, 2, ',', '.') }}</td>
                                 </tr>
                                 <tr>
                                   <td>WBP</td>
-                                  <td>@foreach ($wbp as $value)
-                                    {{$value->tarifperkwh}}
-                                    @endforeach
+                                  <td>
+                                    {{ number_format($tagihan->jumlah_meter * 33 / 100, 0, ',', '.') }}
                                   </td>
                                   <td>x</td>
-                                  <td>1.584</td>
-                                  <td><u>{{ $tagihan->wbp }}</u></td>
+                                  <td>@foreach ($wbp as $value)
+                                    {{number_format($value->tarifperkwh, 0, ',', '.')}}
+                                    @endforeach
+                                  </td>
+                                  <td><u>Rp. {{ number_format($tagihan->wbp, 2, ',', '.') }}</u></td>
                                 </tr>
                                 <tr>
                                   <td colspan="4"></td>
 
-                                  <td>Rp.2.000.000</td>
+                                  <td><b>Rp. {{ number_format(($tagihan->lwbp + $tagihan->wbp) , 2, ',', '.') }}</b></td>
                                 </tr>
 
 
                                 <tr>
                                   <td>PJU DKI</td>
-                                  <td>0,1</td>
+                                  <td>0,03</td>
                                   <td>x</td>
-                                  <td>Rp.2.000.000</td>
-                                  <td>{{ $tagihan->pjudki }}</td>
+                                  <td>{{ number_format(($tagihan->lwbp + $tagihan->wbp) * 3 / 100, 2, ',', '.') }}</td>
+                                  <td>Rp. {{ number_format($tagihan->pjudki, 2, ',', '.') }}</td>
                                 </tr>
                                 <tr>
                                   <td>PEMELIHARAAN</td>
-                                  <td>0,1</td>
+                                  <td>0,05</td>
                                   <td>x</td>
-                                  <td>Rp.2.000.000</td>
-                                  <td><u>{{ $tagihan->pemeliharaan }}</u></td>
+                                  <td>{{ number_format(($tagihan->lwbp + $tagihan->wbp) * 5 / 100, 2, ',', '.') }}</td>
+                                  <td><u>Rp. {{ number_format($tagihan->pemeliharaan, 2, ',', '.') }}</u></td>
                                 </tr>
                                 <tr>
                                   <td colspan="4"></td>
 
-                                  <td>Rp. 2.000.000</td>
+                                  <td><b>Rp. {{ number_format(($tagihan->pjudki + $tagihan->pemeliharaan) , 2, ',', '.') }}</b>
+                                  </td>
                                 </tr>
 
                               </tbody>
@@ -172,9 +171,9 @@
                           <div class="col-6">
                             <p class="lead">NB:</p>
                             <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                              Pembayaran rekening listrik jatuh tempo pada tanggal 15 Desember 2022<br>
+                              Pembayaran rekening listrik jatuh tempo pada tanggal 15 tiap bulan nya <br>
                               Pembayaran dibayarkan kebidang Keuangan TMII atau dapat melalui rekening <br>
-                              Bank BNI a.n PT Taman Wisata Candi Borobudur Prambanan dan Ratu Boko
+                              Bank BNI 2150720216 a.n PT Taman Wisata Candi Borobudur Prambanan dan Ratu Boko
                             </p>
                           </div>
                           <!-- /.col -->
@@ -184,25 +183,30 @@
                             <div class="table-responsive">
                               <table class="table">
                                 <tr>
-                                  <th style="width:50%">Subtotal:</th>
-                                  <td>Rp2.500.000</td>
+                                  <th style="width:50%">Subtotal :</th>
+                                  <td>Rp. {{ number_format(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) , 2, ',', '.') }}</td>
+                                </tr>
+
+                                <tr>
+                                  <th>Materai :</th>
+                                  <td>Rp {{ number_format($tagihan->materai, 2, ',', '.') }}</td>
                                 </tr>
                                 <tr>
-                                  <th>PPN (11%)</th>
-                                  <td>Rp250.000</td>
+                                  <th>Total :</th>
+                                  <td><b>Rp. {{ number_format(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai, 2, ',', '.') }}</b></td>
                                 </tr>
                                 <tr>
-                                  <th>Materai:</th>
-                                  <td>{{ $tagihan->materai }}</td>
+                                  <th>Dibulatkan :</th>
+                                  <td><b>Rp. {{ number_format(round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai), 0, ',', '.') }}</b></td>
                                 </tr>
                                 <tr>
-                                  <th>Total:</th>
-                                  <td>Rp2.750.000</td>
+                                  <th>Terbilang :</th>
+                                  <td><b>{{ Terbilang::make(round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai), ' rupiah') }}</b></td>
                                 </tr>
                               </table>
                             </div>
                           </div>
-                          <!-- /.col -->
+                          <!-- /.col Terbilang::make(123456, ' rupiah', 'senilai '); -->
                         </div>
 
 
@@ -211,40 +215,7 @@
                     </div>
 
 
-                    <div class="tab-pane" id="histori">
-                      <div class="card-body">
-                        <table id="histori" class="table table-bordered table-striped">
-                          <thead>
-                            <tr>
-                              <th>Id Tagihan</th>
-                              <th>Bulan</th>
-                              <th>Tahun</th>
-                              <th>Status</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>TL092323</td>
-                              <td>Januari</td>
-                              <td>2022</td>
-                              <td><a href="#" class="badge badge-success">Sudah Bayar</a></td>
 
-                            </tr>
-
-                          </tbody>
-                          <!-- <tfoot>
-                                    <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                    
-                                    </tr>
-                                </tfoot> -->
-                        </table>
-
-                      </div>
-                    </div>
 
 
                   </div>

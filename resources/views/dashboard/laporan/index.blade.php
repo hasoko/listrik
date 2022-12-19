@@ -36,7 +36,7 @@
                                         <td>{{ $value->tagihan->bulan }}</td>
                                         <td>{{ $value->tagihan->tahun }}</td>
                                         <td>{{ $value->tanggal_bayar}}</td>
-                                        <td>{{ $value->total_bayar}}</td>
+                                        <td>Rp. {{ number_format($value->total_bayar, 0, ',', '.')}}</td>
                                         <td>{{ $value->tagihan->status }}</td>
 
                                     </tr>

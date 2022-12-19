@@ -70,7 +70,7 @@ Route::put('/dashboard/informasi/simpanubah/{id}', [InformasiController::class, 
 
 Route::get('/dashboard/transaksipembayaran', [TransaksiPembayaranController::class, 'index']);
 Route::get('/dashboard/transaksipembayaran/invoice/{id}', [TransaksiPembayaranController::class, 'invoice']);
-Route::put('/dashboard/transaksipembayaran/bayar/{id}', [TransaksiPembayaran::class, 'bayar']);
+Route::put('/dashboard/transaksipembayaran/bayar/{id}', [TransaksiPembayaranController::class, 'bayar']);
 
 Route::get('/dashboard/laporan', [LaporanController::class, 'index']);
 

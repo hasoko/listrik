@@ -43,6 +43,7 @@ class KwhMeterController extends Controller
                 'title' => 'Input KWH'
             ]
         ];
+        // dd($data);
         return view('dashboard.kwhmeter.input', $data);
     }
 
@@ -50,8 +51,9 @@ class KwhMeterController extends Controller
 
     {
 
-        dd($request);
-        $jumlahmeter = ($request->meter_akhir - $request->meter_awal) * $request->faktor_meter;
+        // dd($request);
+        $meter = $request->meter_akhir - $request->meter_awal;
+        $jumlahmeter = $request->faktor_meter * $meter;
 
         // $idtagihan = Carbon::now()->format('y') .''. Carbon::now()->month .''.$request->id_pelanggan;
         $lwbp = Tarif::where('id_tarif', 'lwbp')->get();
@@ -67,8 +69,8 @@ class KwhMeterController extends Controller
 
         $sebelumsubtotal = $jumlahlwbp + $jumlahwbp;
 
-        $jumlahpjudki = $sebelumsubtotal * 1 / 100;
-        $jumlahpemeliharaan = $sebelumsubtotal * 2 / 100;
+        $jumlahpjudki = $sebelumsubtotal * 3 / 100;
+        $jumlahpemeliharaan = $sebelumsubtotal * 5 / 100;
 
         $subtotal = $jumlahlwbp + $jumlahwbp + $jumlahpjudki + $jumlahpemeliharaan;
 
@@ -80,7 +82,7 @@ class KwhMeterController extends Controller
 
         // echo $idtagihan;
 
-        if ($request->meter_akhir < $request->meter_awal) {
+        if ($request->meter_akhir <= $request->meter_awal) {
             echo "gagal";
         } else {
 

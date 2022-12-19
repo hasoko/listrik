@@ -18,7 +18,7 @@
                         @csrf
                         <input name="id_pelanggan" type="hidden" value="{{$kwhmeter->id_pelanggan}}">
                         <input name="meter_awal" type="hidden" value="{{$kwhmeter->meter_akhir}}">
-                        <input name="faktor_meter" type="hidden" value="{{$kwhmeter->faktor_meter}}">
+                        <input name="faktor_meter" type="hidden" value="{{$kwhmeter->pelanggan->faktor_meter}}">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>ID Pelanggan</label>
