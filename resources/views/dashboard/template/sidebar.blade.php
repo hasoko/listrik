@@ -50,7 +50,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <!-- <li class="nav-header">Administrator</li> -->
-                        @if ( auth()->user()->level == "Admin" || auth()->user()->level == "Petugas")
+                        @if ( auth()->user()->level == "Petugas")
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/kwhmeter" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
@@ -88,7 +88,7 @@
                             </a>
                         </li>
                         @endif
-                        @if ( auth()->user()->level == "Admin" || auth()->user()->level == "Kasir")
+                        @if ( auth()->user()->level == "Kasir")
                         <li class="nav-item">
                             <a href="{{ asset('/dashboard') }}/transaksipembayaran" class="nav-link">
                                 <i class="nav-icon fas fa-money-bill"></i>

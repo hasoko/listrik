@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:Admin,Pelanggan,Petugas,Kasir']
 });
 
 
-Route::group(['middleware' => ['auth', 'ceklevel:Admin,Petugas']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:Petugas']], function () {
 
     Route::get('/dashboard/kwhmeter', [KwhMeterController::class, 'index']);
     Route::get('/dashboard/kwhmeter/input/{id}', [KwhMeterController::class, 'inputkwh']);
@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
     Route::get('/dashboard/laporan', [LaporanController::class, 'index']);
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:Admin,Kasir']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:Kasir']], function () {
 
     Route::get('/dashboard/transaksipembayaran', [TransaksiPembayaranController::class, 'index']);
     Route::get('/dashboard/transaksipembayaran/invoice/{id}', [TransaksiPembayaranController::class, 'invoice']);
