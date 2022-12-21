@@ -16,16 +16,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class KwhMeterController extends Controller
 {
-
+    //menampilkan data kwh meter
     public function index()
     {
-        // $cek = Kwhmeter::select('id_pelanggan', DB::raw('MAX(id_kwhmeter) as short_id_kwhmeter'))->groupBy('id_pelanggan')->get();
-        // $cek = Kwhmeter::all();
-        // dd($cek);
+
         $data = [
             'kwhmeter' => Kwhmeter::whereRaw('id_kwhmeter in (select max(id_kwhmeter) from kwhmeter group by (id_pelanggan))')->get(),
 
-            // 'kwhmeter' => Kwhmeter::select('id_kwhmeter','id_pelanggan','bulan','tahun','tanggal_catat',  DB::raw('MAX(id_kwhmeter) as short_id_kwhmeter'))->groupBy('id_pelanggan')->get(),
             'halaman' => [
                 'title' => 'KWH Meter'
             ]
@@ -34,10 +31,10 @@ class KwhMeterController extends Controller
         return view('dashboard.kwhmeter.index', $data);
     }
 
+
+    // menampilkan detail kwh meter yang akan di input 
     public function inputkwh($id)
     {
-
-        // echo Kwhmeter::where('id_pelanggan', $id)->orderBy('tanggal_catat', 'desc')->first();
 
         $data = [
             'kwhmeter' => Kwhmeter::where('id_pelanggan', $id)->orderBy('tanggal_catat', 'desc')->first(),
@@ -49,15 +46,15 @@ class KwhMeterController extends Controller
         return view('dashboard.kwhmeter.input', $data);
     }
 
+
+    // menyimpan kwh meter yang di input
     public function simpan(Request $request)
 
     {
 
-        // dd($request);
         $meter = $request->meter_akhir - $request->meter_awal;
         $jumlahmeter = $request->faktor_meter * $meter;
 
-        // $idtagihan = Carbon::now()->format('y') .''. Carbon::now()->month .''.$request->id_pelanggan;
         $lwbp = Tarif::where('id_tarif', 'lwbp')->get();
         foreach ($lwbp as $value);
         $tariflwbp = $value->tarifperkwh;
@@ -82,7 +79,6 @@ class KwhMeterController extends Controller
             $materai = 0;
         }
 
-        // echo $idtagihan;
 
         if ($request->meter_akhir <= $request->meter_awal) {
             echo "gagal";
