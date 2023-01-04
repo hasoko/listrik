@@ -40,6 +40,21 @@ class TransaksiPembayaranController extends Controller
         return view('dashboard.transaksipembayaran.invoice', $data);
     }
 
+    public function cetak($id)
+    {
+        $data = [
+            'tagihan' => Tagihan::findOrFail($id),
+            'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
+            'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
+            'halaman' => [
+                'title' => 'Invoice'
+            ]
+        ];
+
+        // dd($data);
+        return view('dashboard.transaksipembayaran.cetak', $data);
+    }
+
     public function bayar(Request $request, $id)
     {
 

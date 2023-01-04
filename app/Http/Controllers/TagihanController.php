@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tarif;
 use App\Models\Tagihan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,5 +22,20 @@ class TagihanController extends Controller
             ];
         // dd($data);
         return view('dashboard.tagihan.index', $data);
+    }
+
+    public function cetak($id)
+    {
+        $data = [
+            'tagihan' => Tagihan::findOrFail($id),
+            'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
+            'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
+            'halaman' => [
+                'title' => 'Invoice'
+            ]
+        ];
+
+        // dd($data);
+        return view('dashboard.tagihan.cetak', $data);
     }
 }

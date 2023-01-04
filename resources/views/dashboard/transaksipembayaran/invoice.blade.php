@@ -28,7 +28,7 @@
                     <input name="total_bayar" type="hidden" value="{{ round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai) }}">
 
                     Total Tagihan
-                    <b>Rp. {{ number_format(round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai), 0, ',', '.') }}</b> <button type="submit" class="btn btn-primary">Bayar</button>
+                    <b>Rp. {{ number_format(round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai), 0, ',', '.') }}</b> <button id="bayar" type="submit" class="btn btn-primary">Bayar</button>
                   </form>
                 </div>
 
@@ -225,5 +225,20 @@
           </div>
 
 </section>
+
+@section('myjsfile')
+<script>
+  var anchor = document.getElementById('bayar');
+
+  anchor.addEventListener('click', doSomething, false);
+
+  function doSomething() {
+    alert('Melakukan Pembayaran Tagihan No. {{$tagihan->id_tagihan}}');
+    var win = window.open("{{url('/dashboard/transaksipembayaran/cetak/'. $tagihan->id_tagihan)}}", '_blank');
+    win.focus();
+  }
+</script>
+@stop
+
 
 @include('dashboard.template.footer')

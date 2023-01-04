@@ -77,6 +77,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:Kasir']], function () {
 
     Route::get('/dashboard/transaksipembayaran', [TransaksiPembayaranController::class, 'index']);
     Route::get('/dashboard/transaksipembayaran/invoice/{id}', [TransaksiPembayaranController::class, 'invoice']);
+    Route::get('/dashboard/transaksipembayaran/cetak/{id}', [TransaksiPembayaranController::class, 'cetak']);
     Route::put('/dashboard/transaksipembayaran/bayar/{id}', [TransaksiPembayaranController::class, 'bayar']);
 });
 
@@ -85,5 +86,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:Pelanggan']], function () {
     Route::put('/dashboard/profil/simpanubah/{id}', [ProfilController::class, 'simpanubah']);
 
     Route::get('/dashboard/tagihan', [TagihanController::class, 'index']);
+    Route::get('/dashboard/tagihan/cetak/{id}', [TagihanController::class, 'cetak']);
 });
     //end midleware

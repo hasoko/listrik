@@ -23,6 +23,7 @@
                                         <th>Bulan</th>
                                         <th>Tahun</th>
                                         <th>Status</th>
+                                        <th>Aksi</th>
 
                                     </tr>
                                 </thead>
@@ -39,6 +40,13 @@
                                         <td><span class="badge badge-success">Sudah Bayar</span></td>
                                         @endif
 
+                                        <td>
+                                            @if( $value->status === 'Belum Bayar')
+                                            <a href="{{url('/dashboard/tagihan/cetak/'.$value->id_tagihan)}}" target="_blank" role="button" class="flex-row btn btn-primary btn-sm">Lihat Tagihan</a>
+                                            @else
+                                            <a href="{{url('/dashboard/tagihan/cetak/'.$value->id_tagihan)}}" target="_blank" role="button" class="flex-row btn btn-success btn-sm">Cetak Tagihan</a>
+                                            @endif
+                                        </td>
                                     </tr>
                                     @endforeach
 
