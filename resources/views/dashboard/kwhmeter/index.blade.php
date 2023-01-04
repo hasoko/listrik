@@ -43,6 +43,8 @@
                                         <td>
                                             @if($value->tanggal_catat == null)
                                             <span class="badge badge-warning">baru</span>
+                                            @elseif($value->bulan == "12" and $carbon::now()->month == "01")
+                                            <span class="badge badge-danger">belum di catat</span>
                                             @elseif($value->bulan < $carbon::now()->month)
                                                 <span class="badge badge-danger">belum di catat</span>
                                                 @else
@@ -52,7 +54,7 @@
                                         <!-- <td>{{ $value->tanggal_catat }}</td> -->
                                         <td>
                                             @if($value->bulan == "12" and $carbon::now()->month == "01")
-                                            <button type="button" class="btn btn-primary btn-sm">Input KWH Meter</button>
+                                            <a href="{{url('/dashboard/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
                                             @elseif($value->bulan < $carbon::now()->month)
                                                 <a href="{{url('/dashboard/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
                                                 @elseif($value->bulan == $carbon::now()->month)

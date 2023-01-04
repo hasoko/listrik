@@ -81,7 +81,8 @@ class KwhMeterController extends Controller
 
 
         if ($request->meter_akhir <= $request->meter_awal) {
-            echo "gagal";
+            // echo "gagal";
+            return back()->with('toast_error', 'Kwh meter yang dimasukkan harus lebih besar dari Meter Awal');
         } else {
 
             $bulanini = Carbon::now()->month;

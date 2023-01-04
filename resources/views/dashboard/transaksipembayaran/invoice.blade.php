@@ -28,7 +28,7 @@
                     <input name="total_bayar" type="hidden" value="{{ round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai) }}">
 
                     Total Tagihan
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <b>Rp. {{ number_format(round(($tagihan->lwbp + $tagihan->wbp) + ($tagihan->pjudki + $tagihan->pemeliharaan) + $tagihan->materai), 0, ',', '.') }}</b> <button type="submit" class="btn btn-primary">Bayar</button>
                   </form>
                 </div>
 
