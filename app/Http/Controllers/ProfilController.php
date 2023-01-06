@@ -19,6 +19,7 @@ class ProfilController extends Controller
     }
     public function simpanubah(Request $request, $id)
     {
+
         $tabelPelanggan = Pelanggan::findOrFail($id);
         $tabelPelanggan->npwp = $request->npwp;
         $tabelPelanggan->telepon = $request->telepon;
