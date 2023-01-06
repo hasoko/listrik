@@ -14,7 +14,7 @@ class Informasi extends Model
     protected $primaryKey = 'id_informasi';
     protected $fillable = [
 
-        'id_informasi', 'judul', 'isi', 'tanggal', 'id_user'
+        'id_informasi', 'judul', 'isi', 'tgl_informasi', 'id_user'
     ];
 
     public $timestamps = false;

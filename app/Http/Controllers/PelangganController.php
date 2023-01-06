@@ -69,8 +69,8 @@ class PelangganController extends Controller
         $tanggalskrg = Carbon::now()->toDateString();
 
         $tabelKwhmeter = new Kwhmeter;
-        $tabelKwhmeter->bulan = $bulanini;
-        $tabelKwhmeter->tahun = $tahunini;
+        $tabelKwhmeter->bln_kwhmeter = $bulanini;
+        $tabelKwhmeter->thn_kwhmeter = $tahunini;
         $tabelKwhmeter->meter_awal = 0;
         $tabelKwhmeter->meter_akhir = $request->meter_dipasang;
         // $tabelKwhmeter->tanggal_catat = $tanggalskrg;

@@ -13,14 +13,18 @@
                     <!-- /.card-header -->
                     <!-- form start -->
 
-                    <form action="{{url('/dashboard/datatarif/simpanubah/'. $tarif->kode_tarif )}}" method="POST">
+                    <form action="{{url('/dashboard/datatarif/simpanubah/'. $tarif->id_tarif )}}" method="POST">
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="card-body">
 
                             <div class="form-group col-md-6">
-                                <label>Tarif {{ Str::upper($tarif->kode_tarif) }} per 1 KWH</label>
-                                <input type="text" class="form-control" value="{{ $tarif->tarifperkwh }}" name="tarifperkwh" placeholder="Tarif {{ Str::upper($tarif->kode_tarif) }} per KWH">
+                                <label>Tarif LWBP per 1 KWH</label>
+                                <input type="text" class="form-control" value="{{ $tarif->tarif_lwbp}}" name="tarif_lwbp" placeholder="Tarif LWBP per KWH">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Tarif WBP per 1 KWH</label>
+                                <input type="text" class="form-control" value="{{ $tarif->tarif_wbp }}" name="tarif_wbp" placeholder="Tarif WBP per KWH">
                             </div>
 
                         </div>

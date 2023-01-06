@@ -67,7 +67,7 @@
                           <div class="col-sm-4 invoice-col">
                             <b>Invoice #{{ $tagihan->id_tagihan}}</b><br>
                             <br><br>
-                            <b>Tagihan Bulan:</b> {{ $tagihan->bulan}}/{{ $tagihan->tahun}}<br>
+                            <b>Tagihan Bulan:</b> {{ $tagihan->bln_tagihan}}/{{ $tagihan->thn_tagihan}}<br>
 
                           </div>
                           <!-- /.col -->
@@ -112,8 +112,8 @@
                                     {{ number_format($tagihan->jumlah_meter * 67 / 100, 0, ',', '.') }}
                                   </td>
                                   <td>x</td>
-                                  <td>@foreach ($lwbp as $value)
-                                    {{number_format($value->tarifperkwh, 0, ',', '.')}}
+                                  <td>@foreach ($tarif as $value)
+                                    {{number_format($value->tarif_lwbp, 0, ',', '.')}}
                                     @endforeach
                                   </td>
                                   <td>
@@ -125,8 +125,8 @@
                                     {{ number_format($tagihan->jumlah_meter * 33 / 100, 0, ',', '.') }}
                                   </td>
                                   <td>x</td>
-                                  <td>@foreach ($wbp as $value)
-                                    {{number_format($value->tarifperkwh, 0, ',', '.')}}
+                                  <td>@foreach ($tarif as $value)
+                                    {{number_format($value->tarif_wbp, 0, ',', '.')}}
                                     @endforeach
                                   </td>
                                   <td><u>Rp. {{ number_format($tagihan->wbp, 2, ',', '.') }}</u></td>

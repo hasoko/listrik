@@ -17,7 +17,7 @@ class CreatePembayaranTable extends Migration
             $table->engine = 'InnoDB';
             $table->unsignedBigInteger('id_pembayaran');
             $table->primary('id_pembayaran');
-            $table->date('tanggal_bayar');
+            $table->date('tgl_bayar');
             $table->double('total_bayar');
 
             $table->integer('id_tagihan')->unsigned();

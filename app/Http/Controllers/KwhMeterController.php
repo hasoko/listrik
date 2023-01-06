@@ -55,13 +55,18 @@ class KwhMeterController extends Controller
         $meter = $request->meter_akhir - $request->meter_awal;
         $jumlahmeter = $request->faktor_meter * $meter;
 
-        $lwbp = Tarif::where('id_tarif', 'lwbp')->get();
-        foreach ($lwbp as $value);
-        $tariflwbp = $value->tarifperkwh;
+        $getidkwh = Kwhmeter::select()->orderBy('id_kwhmeter', 'desc')->take(1)->get();
+        foreach ($getidkwh as $value);
+        $idkwhbaru = $value->id_kwhmeter;
 
-        $wbp = Tarif::where('id_tarif', 'wbp')->get();
+
+        $lwbp = Tarif::select()->orderBy('id_tarif', 'desc')->take(1)->get();
+        foreach ($lwbp as $value);
+        $tariflwbp = $value->tarif_lwbp;
+
+        $wbp = Tarif::select()->orderBy('id_tarif', 'desc')->take(1)->get();
         foreach ($wbp as $value);
-        $tarifwbp = $value->tarifperkwh;
+        $tarifwbp = $value->tarif_wbp;
 
         $jumlahlwbp = $tariflwbp * $jumlahmeter * 67 / 100;
         $jumlahwbp = $tarifwbp * $jumlahmeter * 33 / 100;
@@ -92,11 +97,11 @@ class KwhMeterController extends Controller
 
 
             $tabelKwhmeter = new Kwhmeter;
-            $tabelKwhmeter->bulan = $bulanini;
-            $tabelKwhmeter->tahun = $tahunini;
+            $tabelKwhmeter->bln_kwhmeter = $bulanini;
+            $tabelKwhmeter->thn_kwhmeter = $tahunini;
             $tabelKwhmeter->meter_awal = $request->meter_awal;
             $tabelKwhmeter->meter_akhir = $request->meter_akhir;
-            $tabelKwhmeter->tanggal_catat = $tanggalskrg;
+            $tabelKwhmeter->tgl_catat = $tanggalskrg;
             $tabelKwhmeter->id_pelanggan = $request->id_pelanggan;
             $tabelKwhmeter->save();
 
@@ -105,10 +110,14 @@ class KwhMeterController extends Controller
             foreach ($getidkwh as $value);
             $idkwhbaru = $value->id_kwhmeter;
 
+            $getidtarif = Tarif::select()->orderBy('id_tarif', 'desc')->take(1)->get();
+            foreach ($getidtarif as $value);
+            $idtarifbaru = $value->id_tarif;
+
             $tabelTagihan = new Tagihan;
             $tabelTagihan->id_tagihan = $idtagihan;
-            $tabelTagihan->bulan = $bulanini;
-            $tabelTagihan->tahun = $tahunini;
+            $tabelTagihan->bln_tagihan = $bulanini;
+            $tabelTagihan->thn_tagihan = $tahunini;
             $tabelTagihan->jumlah_meter = $jumlahmeter;
             $tabelTagihan->lwbp = $jumlahlwbp;
             $tabelTagihan->wbp = $jumlahwbp;
@@ -118,6 +127,7 @@ class KwhMeterController extends Controller
             $tabelTagihan->status = 'Belum Bayar';
             $tabelTagihan->id_pelanggan = $request->id_pelanggan;
             $tabelTagihan->id_kwhmeter = $idkwhbaru;
+            $tabelTagihan->id_tarif = $idtarifbaru;
             $tabelTagihan->save();
 
             return redirect('/dashboard/kwhmeter')->with('toast_success', 'Berhasil disimpan!');

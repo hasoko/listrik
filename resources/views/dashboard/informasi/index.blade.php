@@ -31,7 +31,7 @@
                                     <tr>
                                         <td>{{ $value->id_informasi }}</td>
                                         <td>{{ $value->judul }}</td>
-                                        <td>{{ $value->tanggal }}</td>
+                                        <td>{{ $value->tgl_informasi }}</td>
                                         <td>{{ $value->user->username }}</td>
 
                                         <td><a href="{{url('/dashboard/informasi/edit/'.$value->id_informasi)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a>

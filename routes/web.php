@@ -86,6 +86,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:Pelanggan']], function () {
     Route::put('/dashboard/profil/simpanubah/{id}', [ProfilController::class, 'simpanubah']);
 
     Route::get('/dashboard/tagihan', [TagihanController::class, 'index']);
-    Route::get('/dashboard/tagihan/cetak/{id}', [TagihanController::class, 'cetak']);
+    Route::get('/dashboard/tagihan/detail/{id}', [TagihanController::class, 'detail']);
 });
     //end midleware

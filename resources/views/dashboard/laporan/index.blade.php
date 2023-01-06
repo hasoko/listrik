@@ -33,9 +33,9 @@
                                     <tr>
                                         <td>{{ $value->id_pembayaran}}</td>
                                         <td>{{ $value->pelanggan->nama}}</td>
-                                        <td>{{ $value->tagihan->bulan }}</td>
-                                        <td>{{ $value->tagihan->tahun }}</td>
-                                        <td>{{ $value->tanggal_bayar}}</td>
+                                        <td>{{ $value->tagihan->bln_tagihan }}</td>
+                                        <td>{{ $value->tagihan->thn_tagihan }}</td>
+                                        <td>{{ $value->tgl_bayar}}</td>
                                         <td>Rp. {{ number_format($value->total_bayar, 0, ',', '.')}}</td>
                                         <td>{{ $value->tagihan->status }}</td>
 

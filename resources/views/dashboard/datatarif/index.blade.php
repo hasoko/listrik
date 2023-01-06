@@ -19,17 +19,17 @@
                                 <thead>
                                     <tr>
 
-                                        <th>Kode</th>
-                                        <th>Tarif Per KWH</th>
+                                        <th>Tarif LWBP</th>
+                                        <th>Tarif WBP/th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($tarif as $value)
                                     <tr>
-                                        <td>{{ Str::upper($value->kode_tarif) }}</td>
-                                        <td>{{ $value->tarifperkwh }}</td>
-                                        <td><a href="{{url('/dashboard/datatarif/edit/'.$value->kode_tarif)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a></td>
+                                        <td>{{ $value->tarif_lwbp }}</td>
+                                        <td>{{ $value->tarif_wbp }}</td>
+                                        <td><a href="{{url('/dashboard/datatarif/edit/'.$value->id_tarif)}}" role="button" class="flex-row btn btn-primary btn-sm">Edit</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

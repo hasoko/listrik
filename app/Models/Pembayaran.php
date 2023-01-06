@@ -17,7 +17,7 @@ class Pembayaran extends Model
     protected $primaryKey = 'id_pembayaran';
     protected $fillable = [
 
-        'id_pembayaran', 'tanggal_bayar', 'total_bayar', 'id_tagihan', 'id_pelanggan', 'id_kwhmeter', 'id_user'
+        'id_pembayaran', 'tgl_bayar', 'total_bayar', 'id_tagihan', 'id_pelanggan', 'id_kwhmeter', 'id_user'
     ];
 
     public $timestamps = false;
@@ -38,6 +38,6 @@ class Pembayaran extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,'id_user');
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

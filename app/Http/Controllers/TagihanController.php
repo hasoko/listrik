@@ -24,7 +24,7 @@ class TagihanController extends Controller
         return view('dashboard.tagihan.index', $data);
     }
 
-    public function cetak($id)
+    public function detail($id)
     {
         $data = [
             'tagihan' => Tagihan::findOrFail($id),
@@ -36,6 +36,6 @@ class TagihanController extends Controller
         ];
 
         // dd($data);
-        return view('dashboard.tagihan.cetak', $data);
+        return view('dashboard.tagihan.detail', $data);
     }
 }

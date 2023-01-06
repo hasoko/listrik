@@ -36,7 +36,8 @@ class TarifController extends Controller
     public function simpanubah(Request $request, $id)
     {
         $tabelTarif = Tarif::findOrFail($id);
-        $tabelTarif->tarifperkwh = $request->tarifperkwh;
+        $tabelTarif->tarif_lwbp = $request->tarif_lwbp;
+        $tabelTarif->tarif_wbp = $request->tarif_wbp;
         $tabelTarif->save();
 
         return redirect('/dashboard/datatarif')->with('toast_success', 'Berhasil diedit!');

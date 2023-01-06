@@ -37,7 +37,7 @@ class InformasiController extends Controller
         $tabelInformasi = new Informasi;
         $tabelInformasi->judul = $request->judul;
         $tabelInformasi->isi = $request->isi;
-        $tabelInformasi->tanggal = Carbon::now()->toDateString();
+        $tabelInformasi->tgl_informasi = Carbon::now()->toDateString();
         $tabelInformasi->id_user = 1;
         $tabelInformasi->save();
 

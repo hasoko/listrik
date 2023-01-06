@@ -17,11 +17,11 @@ class CreateKwhmeterTable extends Migration
             $table->engine = 'InnoDB';
             $table->Increments('id_kwhmeter');
             // $table->primary('id_kwhmeter');
-            $table->char('bulan', 2);
-            $table->char('tahun', 4);
+            $table->char('bln_kwhmeter', 2);
+            $table->char('thn_kwhmeter', 4);
             $table->double('meter_awal');
             $table->double('meter_akhir');
-            $table->date('tanggal_catat')->nullable();
+            $table->date('tgl_catat')->nullable();
 
             $table->integer('id_pelanggan')->unsigned();
             $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');

@@ -15,7 +15,7 @@ class Kwhmeter extends Model
     protected $primaryKey = 'id_kwhmeter';
     protected $fillable = [
 
-        'id_kwhmeter', 'bulan', 'tahun', 'meter_awal', 'meter_akhir', 'tanggal_catat', 'id_pelanggan'
+        'id_kwhmeter', 'bln_kwhmeter', 'thn_kwhmeter', 'meter_awal', 'meter_akhir', 'tgl_catat', 'id_pelanggan'
     ];
 
     public $timestamps = false;

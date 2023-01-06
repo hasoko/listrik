@@ -44,8 +44,9 @@ class TransaksiPembayaranController extends Controller
     {
         $data = [
             'tagihan' => Tagihan::findOrFail($id),
-            'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
-            'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
+            // 'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
+            // 'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
+            'tarif' => Tarif::select()->orderBy('id_tarif', 'desc')->take(1)->get(),
             'halaman' => [
                 'title' => 'Invoice'
             ]
@@ -72,7 +73,7 @@ class TransaksiPembayaranController extends Controller
 
         $tabelPembayaran = new Pembayaran;
         $tabelPembayaran->id_pembayaran = $waktu->year . '' . $waktu->month . '' . $waktu->day . '' . $request->id_kwhmeter;
-        $tabelPembayaran->tanggal_bayar = $tanggalskrg;
+        $tabelPembayaran->tgl_bayar = $tanggalskrg;
         $tabelPembayaran->total_bayar = $request->total_bayar;
         $tabelPembayaran->id_tagihan = $id;
         $tabelPembayaran->id_pelanggan = $request->id_pelanggan;
