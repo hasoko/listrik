@@ -28,8 +28,9 @@ class TagihanController extends Controller
     {
         $data = [
             'tagihan' => Tagihan::findOrFail($id),
-            'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
-            'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
+            // 'lwbp' => Tarif::where('kode_tarif', 'lwbp')->take(1)->get(),
+            // 'wbp' => Tarif::where('Kode_tarif', 'wbp')->get(),
+            'tarif' => Tarif::select()->orderBy('id_tarif', 'desc')->take(1)->get(),
             'halaman' => [
                 'title' => 'Invoice'
             ]

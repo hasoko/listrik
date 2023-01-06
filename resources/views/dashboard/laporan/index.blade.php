@@ -33,7 +33,31 @@
                                     <tr>
                                         <td>{{ $value->id_pembayaran}}</td>
                                         <td>{{ $value->pelanggan->nama}}</td>
-                                        <td>{{ $value->tagihan->bln_tagihan }}</td>
+                                        @if($value->tagihan->bln_tagihan == "1" )
+                                        <td>Januari</td>
+                                        @elseif($value->tagihan->bln_tagihan == "2" )
+                                        <td>Februari</td>
+                                        @elseif($value->tagihan->bln_tagihan == "3" )
+                                        <td>Maret</td>
+                                        @elseif($value->tagihan->bln_tagihan == "4" )
+                                        <td>April</td>
+                                        @elseif($value->tagihan->bln_tagihan == "5" )
+                                        <td>Mei</td>
+                                        @elseif($value->tagihan->bln_tagihan == "6" )
+                                        <td>Juni</td>
+                                        @elseif($value->tagihan->bln_tagihan == "7" )
+                                        <td>Juli</td>
+                                        @elseif($value->tagihan->bln_tagihan == "8" )
+                                        <td>Agustus</td>
+                                        @elseif($value->tagihan->bln_tagihan == "9" )
+                                        <td>September</td>
+                                        @elseif($value->tagihan->bln_tagihan == "10" )
+                                        <td>Oktober</td>
+                                        @elseif($value->tagihan->bln_tagihan == "11" )
+                                        <td>November</td>
+                                        @elseif($value->tagihan->bln_tagihan == "12" )
+                                        <td>Desember</td>
+                                        @endif
                                         <td>{{ $value->tagihan->thn_tagihan }}</td>
                                         <td>{{ $value->tgl_bayar}}</td>
                                         <td>Rp. {{ number_format($value->total_bayar, 0, ',', '.')}}</td>
@@ -71,7 +95,7 @@
 <script src="{{ asset('/lte') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('/lte') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('/lte') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script>
+<!-- <script>
     $(function() {
         $("#example1").DataTable({
             "responsive": true,
@@ -81,6 +105,6 @@
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
     });
-</script>
+</script> -->
 
 @include('dashboard.template.footer')

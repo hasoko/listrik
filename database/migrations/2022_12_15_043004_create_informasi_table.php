@@ -19,7 +19,7 @@ class CreateInformasiTable extends Migration
             // $table->primary('id_informasi');
             $table->string('judul', 100);
             $table->longText('isi');
-            $table->date('tanggal');
+            $table->date('tgl_informasi');
 
             $table->SmallInteger('id_user')->unsigned();
             $table->foreign('id_user')->references('id_user')->on('user')->onDelete('cascade');

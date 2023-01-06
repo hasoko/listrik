@@ -32,6 +32,14 @@ class UnitController extends Controller
 
     public function simpan(Request  $request)
     {
+        $this->validate(
+            $request,
+            [
+                'nama_unit' => 'required',
+                'prefix' => 'required'
+            ],
+
+        );
         $tabelUnit = new Unit;
         $tabelUnit->nama_unit = $request->nama_unit;
         $tabelUnit->prefix = $request->prefix;

@@ -38,6 +38,15 @@ class PelangganController extends Controller
 
     public function simpan(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'faktor_meter' => 'required',
+                'nama' => 'required|',
+                'meter_dipasang' => 'required'
+            ],
+
+        );
 
 
         // membuat ID Pelanggan

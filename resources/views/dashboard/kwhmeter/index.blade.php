@@ -41,11 +41,11 @@
                                                 @endif
                                         </td> -->
                                         <td>
-                                            @if($value->tanggal_catat == null)
+                                            @if($value->tgl_catat == null)
                                             <span class="badge badge-warning">baru</span>
-                                            @elseif($value->bulan == "12" and $carbon::now()->month == "01")
+                                            @elseif($value->bln_kwhmeter == "12" and $carbon::now()->month == "01")
                                             <span class="badge badge-danger">belum di catat</span>
-                                            @elseif($value->bulan < $carbon::now()->month)
+                                            @elseif($value->bln_kwhmeter < $carbon::now()->month)
                                                 <span class="badge badge-danger">belum di catat</span>
                                                 @else
                                                 <span class="badge badge-success">sudah di catat</span>
@@ -53,11 +53,11 @@
                                         </td>
                                         <!-- <td>{{ $value->tanggal_catat }}</td> -->
                                         <td>
-                                            @if($value->bulan == "12" and $carbon::now()->month == "01")
+                                            @if($value->bln_kwhmeter == "12" and $carbon::now()->month == "01")
                                             <a href="{{url('/dashboard/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
-                                            @elseif($value->bulan < $carbon::now()->month)
+                                            @elseif($value->bln_kwhmeter < $carbon::now()->month)
                                                 <a href="{{url('/dashboard/kwhmeter/input/'.$value->id_pelanggan)}}" role="button" class="flex-row btn btn-primary btn-sm">Input KWH Meter</a>
-                                                @elseif($value->bulan == $carbon::now()->month)
+                                                @elseif($value->bln_kwhmeter == $carbon::now()->month)
                                                 <button type="button" class="btn btn-primary btn-sm" disabled>Input KWH Meter</button>
                                                 @else
                                                 <button type="button" class="btn btn-primary btn-sm" disabled>Input KWH Meter</button>

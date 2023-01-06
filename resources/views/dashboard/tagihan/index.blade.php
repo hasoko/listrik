@@ -32,7 +32,32 @@
                                     <tr>
                                         <td>{{ $value->id_tagihan}}</td>
                                         <td>Rp. {{ number_format(round(($value->lwbp + $value->wbp) + ($value->pjudki + $value->pemeliharaan) + $value->materai), 0, ',', '.') }}</td>
-                                        <td>{{ $value->bln_tagihan}}</td>
+
+                                        @if($value->bln_tagihan == "1" )
+                                        <td>Januari</td>
+                                        @elseif($value->bln_tagihan == "2" )
+                                        <td>Februari</td>
+                                        @elseif($value->bln_tagihan == "3" )
+                                        <td>Maret</td>
+                                        @elseif($value->bln_tagihan == "4" )
+                                        <td>April</td>
+                                        @elseif($value->bln_tagihan == "5" )
+                                        <td>Mei</td>
+                                        @elseif($value->bln_tagihan == "6" )
+                                        <td>Juni</td>
+                                        @elseif($value->bln_tagihan == "7" )
+                                        <td>Juli</td>
+                                        @elseif($value->bln_tagihan == "8" )
+                                        <td>Agustus</td>
+                                        @elseif($value->bln_tagihan == "9" )
+                                        <td>September</td>
+                                        @elseif($value->bln_tagihan == "10" )
+                                        <td>Oktober</td>
+                                        @elseif($value->bln_tagihan == "11" )
+                                        <td>November</td>
+                                        @elseif($value->bln_tagihan == "12" )
+                                        <td>Desember</td>
+                                        @endif
                                         <td>{{ $value->thn_tagihan}}</td>
                                         @if( $value->status === 'Belum Bayar')
                                         <td><span class="badge badge-danger">Belum Bayar</span></td>

@@ -114,51 +114,51 @@ class DatabaseSeeder extends Seeder
         $kwhmeter = [
             [
 
-                'bulan' => '10',
-                'tahun' => '2022',
+                'bln_kwhmeter' => '10',
+                'thn_kwhmeter' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 0,
-                'tanggal_catat' => null,
+                'tgl_catat' => null,
                 'id_pelanggan' => 750001,
 
             ],
             [
 
-                'bulan' => '12',
-                'tahun' => '2022',
+                'bln_kwhmeter' => '12',
+                'thn_kwhmeter' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 0,
-                'tanggal_catat' => null,
+                'tgl_catat' => null,
                 'id_pelanggan' => 750002,
 
             ],
             [
 
-                'bulan' => '11',
-                'tahun' => '2022',
+                'bln_kwhmeter' => '11',
+                'thn_kwhmeter' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 0,
-                'tanggal_catat' => null,
+                'tgl_catat' => null,
                 'id_pelanggan' => 750003,
 
             ],
             [
 
-                'bulan' => '12',
-                'tahun' => '2022',
+                'bln_kwhmeter' => '12',
+                'thn_kwhmeter' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 50,
-                'tanggal_catat' => '2022-12-16',
+                'tgl_catat' => '2022-12-16',
                 'id_pelanggan' => 750002,
 
             ],
             [
 
-                'bulan' => '11',
-                'tahun' => '2022',
+                'bln_kwhmeter' => '11',
+                'thn_kwhmeter' => '2022',
                 'meter_awal' => 0,
                 'meter_akhir' => 100,
-                'tanggal_catat' => '2022-11-16',
+                'tgl_catat' => '2022-11-16',
                 'id_pelanggan' => 750001,
 
             ],
@@ -170,16 +170,11 @@ class DatabaseSeeder extends Seeder
         $tarif = [
             [
 
-                'id_tarif' => 'lwbp',
-                'kode_tarif' => 'lwbp',
-                'tarifperkwh' => '1005',
+                'id_tarif' => '1',
+                'tarif_lwbp' => '1005',
+                'tarif_wbp' => '1504',
             ],
-            [
 
-                'id_tarif' => 'wbp',
-                'kode_tarif' => 'wbp',
-                'tarifperkwh' => '1504',
-            ],
 
         ];
         $informasi = [
@@ -188,7 +183,7 @@ class DatabaseSeeder extends Seeder
                 'id_informasi' => 1,
                 'judul' => 'Pemberitahuan Maintinance Listrik',
                 'isi' => 'Yang terhormat Bapak/Ibu Pelanggan, akan ada pemadaman listrik pada tanggal 1 Januari 2022 Pukul 22.00 Wib sd Selesai.',
-                'tanggal' => '2022-12-12',
+                'tgl_informasi' => '2022-12-12',
                 'id_user' => 1,
 
             ],

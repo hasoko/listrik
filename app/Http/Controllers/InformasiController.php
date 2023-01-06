@@ -33,6 +33,14 @@ class InformasiController extends Controller
 
     public function simpan(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'judul' => 'required',
+                'isi' => 'required'
+            ],
+
+        );
         // dd($request)
         $tabelInformasi = new Informasi;
         $tabelInformasi->judul = $request->judul;

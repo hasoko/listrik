@@ -128,6 +128,10 @@
             "lengthChange": false,
             "ordering": false,
             "autoWidth": false,
+            "columnDefs": [{
+                "searchable": false,
+                "targets": [6]
+            }],
             "buttons": [
 
                 {

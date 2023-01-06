@@ -37,7 +37,7 @@ class KwhMeterController extends Controller
     {
 
         $data = [
-            'kwhmeter' => Kwhmeter::where('id_pelanggan', $id)->orderBy('tanggal_catat', 'desc')->first(),
+            'kwhmeter' => Kwhmeter::where('id_pelanggan', $id)->orderBy('tgl_catat', 'desc')->first(),
             'halaman' => [
                 'title' => 'Input KWH'
             ]
@@ -52,6 +52,13 @@ class KwhMeterController extends Controller
 
     {
 
+        $this->validate(
+            $request,
+            [
+                'meter_akhir' => 'required'
+            ],
+
+        );
         $meter = $request->meter_akhir - $request->meter_awal;
         $jumlahmeter = $request->faktor_meter * $meter;
 

@@ -20,7 +20,7 @@
                                     <tr>
 
                                         <th>Tarif LWBP</th>
-                                        <th>Tarif WBP/th>
+                                        <th>Tarif WBP</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
