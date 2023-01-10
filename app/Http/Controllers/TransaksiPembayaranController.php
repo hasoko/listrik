@@ -17,7 +17,8 @@ class TransaksiPembayaranController extends Controller
     {
         $data = [
 
-            'tagihan' => Tagihan::all(),
+            // 'tagihan' => Tagihan::all(), 
+            'tagihan' => Tagihan::select()->orderBy('status', 'asc')->get(),
             'halaman' => [
                 'title' => 'Transaksi'
             ]

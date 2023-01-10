@@ -84,6 +84,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:Kasir']], function () {
 Route::group(['middleware' => ['auth', 'ceklevel:Pelanggan']], function () {
     Route::get('/dashboard/profil', [ProfilController::class, 'index']);
     Route::put('/dashboard/profil/simpanubah/{id}', [ProfilController::class, 'simpanubah']);
+    Route::put('/dashboard/profil/gantipassword/{id}', [ProfilController::class, 'gantipassword']);
 
     Route::get('/dashboard/tagihan', [TagihanController::class, 'index']);
     Route::get('/dashboard/tagihan/detail/{id}', [TagihanController::class, 'detail']);

@@ -22,6 +22,7 @@
                     <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Profil</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Edit</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#password" data-toggle="tab">Ganti Password</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -77,6 +78,38 @@
                           <label for="inputTelepon" class="col-sm-2 col-form-label">No Telepon</label>
                           <div class="col-sm-10">
                             <input class="form-control" placeholder="No Telepon" name="telepon" value="{{ auth()->user()->pelanggan->telepon ?? '' }}">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-danger">Simpan</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="tab-pane" id="password">
+                      <form class="form-horizontal" action="{{url('/dashboard/profil/gantipassword/'. auth()->user()->pelanggan->id_pelanggan )}}" method="POST">
+
+                        @csrf
+                        {{ method_field('PUT') }}
+
+                        <div class="form-group row">
+                          <label for="inputPassword" class="col-sm-2 col-form-label">Password Lama</label>
+                          <div class="col-sm-10">
+                            <input class="form-control" placeholder="Password Lama" name="current-password" autofocus>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputNewPassword" class="col-sm-2 col-form-label">Password Baru</label>
+                          <div class="col-sm-10">
+                            <input class="form-control" placeholder="Password Baru" name="new-password">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputConfirmNewPassword" class="col-sm-2 col-form-label">Konfirmasi Password Baru</label>
+                          <div class="col-sm-10">
+                            <input class="form-control" placeholder="Konfirmasi Password Baru" name="new-password-confirm">
                           </div>
                         </div>
 
